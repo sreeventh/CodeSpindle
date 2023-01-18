@@ -1,0 +1,165 @@
+.courseHome {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.courseHome:hover {
+  color: rgb(180, 180, 180);
+}
+
+.smch {
+  margin: 20px auto 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-radius: 15px 0;  */
+}
+
+#smcon {
+  width: 80%;
+  margin: auto;
+}
+
+#smallMainCon {
+  padding-bottom: 10px;
+  margin: 10px 0 10px 10px;
+}
+
+.items {
+  color: white;
+}
+
+/************************************** COURSE TEMPLATE AND SET_TEST : displaying elements based on device size ***********************************/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* mobile devices */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 0rem) {
+  #smcon {
+    display: block;
+  }
+  #smallMainCon {
+    display: block;
+  }
+  #lgcon {
+    display: none;
+  }
+
+  /* new test dialogbox */
+  #newtdb {
+    width: 50%;
+    height: 30%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  #addqf,
+  #addimg {
+    width: 50%;
+    height: 60%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 48rem) {
+  #smcon {
+    display: none;
+  }
+  #smallMainCon {
+    display: none;
+  }
+  #lgcon {
+    display: block;
+  }
+
+  /* new test dialog box */
+  #newtdb {
+    width: 25%;
+    height: 30%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #addqf,
+  #addimg {
+    width: 30%;
+    height: 60%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 62rem) {
+  #smcon {
+    display: none;
+  }
+  #lgcon {
+    display: block;
+  }
+  #smallMainCon {
+    display: none;
+  }
+
+  /* new test dialog box */
+  #newtdb {
+    width: 25%;
+    height: 30%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #addqf,
+  #addimg {
+    width: 25%;
+    height: 60%;
+    outline-style: groove;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+/**************************************************  *************************************************************/
+
+.image1 {
+  width: 500px;
+  display: flex;
+  margin: 30px auto auto;
+}
+
+.navi {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#ttable {
+  padding: 10px;
+}
+
+table {
+  table-layout: fixed;
+}
+
+td,
+th {
+  width: 100px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.ccpd {
+  overflow: scroll;
+  /* other styles */
+}
