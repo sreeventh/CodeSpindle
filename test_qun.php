@@ -4,7 +4,11 @@
     $con = mysqli_connect('localhost' , 'root');
     mysqli_select_db($con,'codespindle');
 
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    } else {
+    return;
+    }
     $res = mysqli_query($con , "select * from tcat where tid = $id");
     while($row = mysqli_fetch_array($res)){
         $ename  = $row["tname"];
@@ -207,6 +211,7 @@ if(isset($_POST["aqni"])){
                                 <th>Option 3</th>
                                 <th>Option 4</th>
                                 <th>Answer</th>
+                                <th>Delete</th>
                                 </tr>
                             </thead>
 
@@ -278,6 +283,7 @@ if(isset($_POST["aqni"])){
                                         echo $ro["answer"];
                                     }
                                     ?></td>
+                                    <td><a href="delconq.php?id=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none;">Delete</a></td>
                                 </tr>
                                 <?php
                             }

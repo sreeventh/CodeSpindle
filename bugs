@@ -1,6 +1,7 @@
 #BUGS->
 1) null test is allowed - FIXED
 2) give scrolling function - FIXED
+3) delconq -> test_qun.php redirection undefined arraykay error (get method)
 
 
 Personal Ref
