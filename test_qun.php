@@ -239,10 +239,10 @@ if(isset($_POST["aqni"])){
     </div>
 
         <!----------------------------------------------- dialog box for add qun form ---------------------------------------------------->
-        <div class="container" id="addqf" style="position:fixed; z-index: 2;left: 150px;bottom: 250px;">
+        <div class="container" id="addqf" style="position:relative; z-index: 2;bottom:200px">
             <form id="qf" action="" method="post"></form>
                 <div class="form-group">
-                    <label for="qname">Question Name<a onclick="showiform()" style="padding-left:70px; text-decoration:none;  cursor:pointer;">[Image]</a></label>
+                    <label for="qname">Question<a onclick="showiform()" style="padding-left:70px; text-decoration:none;  cursor:pointer;color:rgb(233, 114, 10)">Image</a></label>
                     <input form="qf" type="text" name="qname" class="form-control">
                 </div>
                 <div class="form-group">
@@ -273,7 +273,7 @@ if(isset($_POST["aqni"])){
 
         <!-- ---------------------------------------------------dbox for img optns----------------------------------------------------- -->
 
-        <div class="container" id="addimg" style="position:fixed; z-index: 3;left:150px;bottom: 250px;">
+        <div class="container" id="addimg" style="position:relative; z-index: 3;bottom: 250px;">
             <form id="imf" action="" enctype="multipart/form-data" method="post"></form>
                 <div class="form-group">
                     <label for="qname">Question Image</label>
