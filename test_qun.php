@@ -307,7 +307,7 @@ if(isset($_POST["aqni"])){
                 </div>
                 <div class="form-group">
                     <label for="op1">Option 1</label>
-                    <input form="qf" type="text" name="op1" class="form-control">
+                    <textarea cols="30" rows="10" form="qf" type="text" name="op1" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2">Option 2</label>
