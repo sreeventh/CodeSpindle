@@ -205,7 +205,7 @@ if(isset($_POST["aqni"])){
                             <thead>
                                 <tr>
                                 <th>#</th>
-                                <th>Qun Name</th>
+                                <th>Question</th>
                                 <th>Option 1</th>
                                 <th>Option 2</th>
                                 <th>Option 3</th>
@@ -303,27 +303,27 @@ if(isset($_POST["aqni"])){
             <form id="qf" action="" method="post"></form>
                 <div class="form-group">
                     <label for="qname">Question<button onclick="showiform()" class="btn btn-primary btn-dark" style="margin:10px;">Image</button></label>
-                    <input form="qf" type="text" name="qname" class="form-control">
+                    <textarea cols="30" rows="10" form="qf" type="text" name="qname" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op1">Option 1</label>
-                    <textarea cols="30" rows="10" form="qf" type="text" name="op1" class="form-control"></textarea>
+                    <textarea cols="10" rows="2" form="qf" type="text" name="op1" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2">Option 2</label>
-                    <input form="qf" type="text" name="op2" class="form-control">
+                    <textarea cols="10" rows="2" form="qf" type="text" name="op2" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op3">Option 3</label>
-                    <input form="qf" type="text" name="op3" class="form-control">
+                    <textarea cols="10" rows="2" form="qf" type="text" name="op3" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op4">Option 4</label>
-                    <input form="qf" type="text" name="op4" class="form-control">
+                    <textarea cols="10" rows="2" form="qf" type="text" name="op4" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="ans">Answer</label>
-                    <input form="qf" type="text" name="ans" class="form-control">
+                    <textarea cols="10" rows="2" form="qf" type="text" name="ans" class="form-control"></textarea>
                 </div>
                 <br>
                 <input form="qf" type="submit" name="aqn" value="Add Qun" class="btn btn-dark">
