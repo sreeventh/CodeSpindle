@@ -15,6 +15,7 @@ if (!isset($_SESSION["username"])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>java_page</title>
     <!-- css style sheet -->
     <link rel="stylesheet" href="styles.css">
