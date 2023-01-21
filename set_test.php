@@ -13,7 +13,7 @@ mysqli_select_db($con,'codespindle');
 
 
 if(isset($_POST["create"])){
-    $dupdat = mysqli_query($con, "SELECT tname, COUNT(*) as count FROM tcat GROUP BY tname HAVING count >= 1");
+    $dupdat = mysqli_query($con, "SELECT tname, COUNT(*) as count FROM tcat GROUP BY tname HAVING count > 1");
     if($dupdat->num_rows>0){
         while($dupro=mysqli_fetch_assoc($dupdat)){
             ?>
