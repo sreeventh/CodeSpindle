@@ -11,7 +11,21 @@ $con = mysqli_connect('localhost' , 'root');
 
 mysqli_select_db($con,'codespindle');
 
+
 if(isset($_POST["create"])){
+    $dupdat = mysqli_query($con, "SELECT tname, COUNT(*) as count FROM tcat GROUP BY tname HAVING count >= 1");
+    if($dupdat->num_rows>0){
+        while($dupro=mysqli_fetch_assoc($dupdat)){
+            ?>
+            <script>
+            alert("Test Already Exists")
+            window.location.href = window.location.href
+        </script>
+        <?php
+        }
+    }
+    else{
+       
     $tdata = "insert into tcat values (NULL , '$_POST[tname]' , '$_POST[ttime]') ";
     $update_result = mysqli_query( $con , $tdata ) or die ('Unable to execute query. '. mysqli_error($con));
     ?>
@@ -20,7 +34,10 @@ if(isset($_POST["create"])){
         window.location.href = window.location.href;
     </script>
     <?php
+    }
+    
 }
+
 ?>
 
 
@@ -154,7 +171,7 @@ if(isset($_POST["create"])){
 
         <!------------------------------------------------ dialog box for new test --------------------------------------------------------------------->
         
-        <div class="container" id="newtdb" style="position:relative;bottom:450px;z-index:2;">
+        <div class="container" id="newtdb" style="position:fixed;bottom:450px;top:150px;left:200px;z-index:2;">
             <form id="newtf" name="newtf" action="set_test.php" method="POST" onsubmit="return nullw()"></form>
                 <div class="form-group">
                     <label for="tname">Test Name</label>
