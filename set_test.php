@@ -13,20 +13,13 @@ mysqli_select_db($con,'codespindle');
 
 
 if(isset($_POST["create"])){
-    $dupdat = mysqli_query($con, "SELECT tname, COUNT(*) as count FROM tcat GROUP BY tname HAVING count > 1");
-    if($dupdat->num_rows>0){
-        while($dupro=mysqli_fetch_assoc($dupdat)){
-            ?>
-            <script>
-            alert("Test Already Exists")
-            window.location.href = window.location.href
-        </script>
-        <?php
-        }
-    }
-    else{
-       
-    $tdata = "insert into tcat values (NULL , '$_POST[tname]' , '$_POST[ttime]') ";
+    
+    $dup_name = $_POST['tname'];
+    $dupset_1 = mysqli_query($con , "select * from tcat where tname='$dup_name' ") or die(mysqli_error($con));
+    $dcount = mysqli_num_rows($dupset_1);
+   if($dcount == 0)
+    {
+        $tdata = "insert into tcat values (NULL , '$_POST[tname]' , '$_POST[ttime]') ";
     $update_result = mysqli_query( $con , $tdata ) or die ('Unable to execute query. '. mysqli_error($con));
     ?>
     <script>
@@ -34,9 +27,19 @@ if(isset($_POST["create"])){
         window.location.href = window.location.href;
     </script>
     <?php
+       
+    }
+    else{
+       ?>
+       <script>
+        alert("Test Already Present!...Create a New One Please")
+        window.location.href = window.location.href
+       </script>
+       <?php
+    }
     }
     
-}
+
 
 ?>
 
