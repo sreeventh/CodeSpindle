@@ -25,7 +25,7 @@ function delq(){
     mysqli_query($con, "delete from tqn where qid = $id");
     ?>
     <script>
-        window.location.href = "test_qun.php"
+        window.location.href = "set_test.php"
     </script>
 
     <?php
@@ -119,7 +119,7 @@ if (array_key_exists('delbtn', $_POST)) {
             <?php echo $qname ?>?
         </h5>
         <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="yes">
-        <button onclick="location.href='test_qun.php'" class="btn btn-danger">no</button>
+        <button onclick="location.href='set_test.php'" class="btn btn-danger">no</button>
     </div>
 
 

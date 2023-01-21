@@ -1,20 +1,67 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add qun</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <!-- favicon -->
+        <link rel="icon" href="images/favicon.ico">
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>
+    <?php
 
-    session_start();
-    $con = mysqli_connect('localhost' , 'root');
-    mysqli_select_db($con,'codespindle');
+        session_start();
+        $con = mysqli_connect('localhost' , 'root');
+        mysqli_select_db($con,'codespindle');
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-    } else {
-    return;
-    }
-    $res = mysqli_query($con , "select * from tcat where tid = $id");
-    while($row = mysqli_fetch_array($res)){
-        $ename  = $row["tname"];
-    }
+        $id = "";
+        $ename = "";
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+        return;
+        }
+        $res = mysqli_query($con , "select * from tcat where tid = $id");
+        while($row = mysqli_fetch_assoc($res)){
+            $ename  = $row["tname"];
+        }
 
-    if(isset($_POST["aqn"])){
+        if(isset($_POST["aqn"])){
+            $loop=0;
+            $count=0;
+
+            $res = mysqli_query($con , "select * from tqn where category='$ename' order by qid asc ") or die(mysqli_error($con));
+            $count = mysqli_num_rows($res);
+
+            if($count==0){
+
+            }
+            else{
+                while($row = mysqli_fetch_array($res)){
+                    $loop+=1;
+                    mysqli_query($con, "update tqn set question_no='$loop' where qid='"+$row['qid']+"'");
+                }
+            }
+            $loop+=1;
+            mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$_POST[qname]' , '$_POST[op1]' , '$_POST[op2]' , '$_POST[op3]' , '$_POST[op4]' , '$_POST[ans]' , '$ename' )") or die(mysqli_error($con)) ;
+
+            ?>
+            <script>
+                alert('Question added!')
+                window.location.href=window.location.href
+            </script>
+            <?php
+        }
+
+        ?>
+
+        <?php
+        if(isset($_POST["aqni"])){
         $loop=0;
         $count=0;
 
@@ -31,107 +78,58 @@
             }
         }
         $loop+=1;
-        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$_POST[qname]' , '$_POST[op1]' , '$_POST[op2]' , '$_POST[op3]' , '$_POST[op4]' , '$_POST[ans]' , '$ename' )") or die(mysqli_error($con)) ;
+
+        $tim = md5(time());
+
+        $fil1 = $_FILES["iop1"]["name"];
+        $dest1 = "./qna_images/".$tim.$fil1;
+        $dest_db1 = "qna_images/".$tim.$fil1;
+        move_uploaded_file($_FILES["iop1"]["tmp_name"] , $dest1);
+
+
+        $fil2 = $_FILES["iop2"]["name"];
+        $dest2 = "./qna_images/".$tim.$fil2;
+        $dest_db2 = "qna_images/".$tim.$fil2;
+        move_uploaded_file($_FILES["iop2"]["tmp_name"] , $dest2);
+
+
+        $fil3 = $_FILES["iop3"]["name"];
+        $dest3 = "./qna_images/".$tim.$fil3;
+        $dest_db3 = "qna_images/".$tim.$fil3;
+        move_uploaded_file($_FILES["iop3"]["tmp_name"] , $dest3);
+
+
+        $fil4 = $_FILES["iop4"]["name"];
+        $dest4 = "./qna_images/".$tim.$fil4;
+        $dest_db4 = "qna_images/".$tim.$fil4;
+        move_uploaded_file($_FILES["iop4"]["tmp_name"] , $dest4);
+
+
+        $fil5 = $_FILES["ians"]["name"];
+        $dest5 = "./qna_images".$tim.$fil5;
+        $dest_db5 = "qna_images/".$tim.$fil5;
+        move_uploaded_file($_FILES["ians"]["tmp_name"] , $dest5);
+
+
+        $fil6 = $_FILES["iqname"]["name"];
+        $dest6 = "./qna_images/".$tim.$fil6;
+        $dest_db6 = "qna_images/".$tim.$fil6;
+        move_uploaded_file($_FILES["iqname"]["tmp_name"] , $dest6);
+
+
+
+        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$dest_db5' , '$ename' )") or die(mysqli_error($con)) ;
 
         ?>
         <script>
-            alert('Question added!')
+            alert('Question with image added!')
             window.location.href=window.location.href
         </script>
-         <?php
-    }
-
-?>
-
-<?php
-if(isset($_POST["aqni"])){
-    $loop=0;
-    $count=0;
-
-    $res = mysqli_query($con , "select * from tqn where category='$ename' order by qid asc ") or die(mysqli_error($con));
-    $count = mysqli_num_rows($res);
-
-    if($count==0){
-
-    }
-    else{
-        while($row = mysqli_fetch_array($res)){
-            $loop+=1;
-            mysqli_query($con, "update tqn set question_no='$loop' where qid='$row[qid]'  ");
+        <?php
         }
-    }
-    $loop+=1;
-
-    $tim = md5(time());
-
-    $fil1 = $_FILES["iop1"]["name"];
-    $dest1 = "./qna_images/".$tim.$fil1;
-    $dest_db1 = "qna_images/".$tim.$fil1;
-    move_uploaded_file($_FILES["iop1"]["tmp_name"] , $dest1);
-
-    
-    $fil2 = $_FILES["iop2"]["name"];
-    $dest2 = "./qna_images/".$tim.$fil2;
-    $dest_db2 = "qna_images/".$tim.$fil2;
-    move_uploaded_file($_FILES["iop2"]["tmp_name"] , $dest2);
-
-    
-    $fil3 = $_FILES["iop3"]["name"];
-    $dest3 = "./qna_images/".$tim.$fil3;
-    $dest_db3 = "qna_images/".$tim.$fil3;
-    move_uploaded_file($_FILES["iop3"]["tmp_name"] , $dest3);
-
-    
-    $fil4 = $_FILES["iop4"]["name"];
-    $dest4 = "./qna_images/".$tim.$fil4;
-    $dest_db4 = "qna_images/".$tim.$fil4;
-    move_uploaded_file($_FILES["iop4"]["tmp_name"] , $dest4);
-
-    
-    $fil5 = $_FILES["ians"]["name"];
-    $dest5 = "./qna_images".$tim.$fil5;
-    $dest_db5 = "qna_images/".$tim.$fil5;
-    move_uploaded_file($_FILES["ians"]["tmp_name"] , $dest5);
-
-    
-    $fil6 = $_FILES["iqname"]["name"];
-    $dest6 = "./qna_images/".$tim.$fil6;
-    $dest_db6 = "qna_images/".$tim.$fil6;
-    move_uploaded_file($_FILES["iqname"]["tmp_name"] , $dest6);
 
 
-
-    mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$dest_db5' , '$ename' )") or die(mysqli_error($con)) ;
-
-    ?>
-    <script>
-        alert('Question with image added!')
-        window.location.href=window.location.href
-    </script>
-     <?php
-}
-
-
-?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Add qun</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <!-- favicon -->
-        <link rel="icon" href="images/favicon.ico">
-        <!-- bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <title>Document</title>
-    </head>
-    <body>
-
+        ?>
         <!------------------------------------------- nav bar ------------------------------------------------------------>
         <div id="navii" class="navi bg-success" style="position:relative;">
             <nav class="navbar navbar-expand-lg navbar-dark bg-success">
