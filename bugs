@@ -1,7 +1,8 @@
 #BUGS->
 1) null test is allowed - FIXED
-2) give scrolling function - FIXED
+2) give scrolling function to card  - FIXED
 3) delconq -> test_qun.php redirection undefined arraykay error (get method)
+4) duplicate test names - FIXED
 
 
 Personal Ref
@@ -29,7 +30,7 @@ Personal Ref
 #modules-->>
 
 1)set test from admin side                   ---> DONE
-2)set qun from admin side                    ---   
+2)set qun from admin side                    ---> DONE  
 3)edit/delete test/qun from admin side       ---   
 
 4)set in-course quiz from admin side         ---   
