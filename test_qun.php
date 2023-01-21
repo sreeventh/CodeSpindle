@@ -281,7 +281,7 @@
                                         echo $ro["answer"];
                                     }
                                     ?></td>
-                                    <td><a href="delconq.php?id=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none;">Delete</a></td>
+                                    <td><a href="delconq.php?id=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none;">❌</a></td>
                                 </tr>
                                 <?php
                             }
