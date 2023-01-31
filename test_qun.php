@@ -144,7 +144,7 @@
                             <a class="nav-link" href="java.php">Java</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="html.html">Html</a>
+                            <a class="nav-link" href="html.php">Html</a>
                         </li>
                         <?php 
                         if($_SESSION['type']=="admin"){

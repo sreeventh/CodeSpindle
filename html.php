@@ -93,9 +93,9 @@ if (!isset($_SESSION["username"])) {
                     <div
                         class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
 
-                        <a href="java.php"
+                        <a href="html.php"
                             class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <span class="fs-5 d-none d-sm-inline">Java Home</span>
+                            <span class="fs-5 d-none d-sm-inline">Html Home</span>
                         </a>
 
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -108,14 +108,14 @@ if (!isset($_SESSION["username"])) {
 
                             <li>
                                 <a href="" class="nav-link px-0 align-middle">
-                                    <span class="items ms-1 d-none d-sm-inline">Ternary Operators</span>
+                                    <span class="items ms-1 d-none d-sm-inline">Tables</span>
                                 </a>
                             </li>
 
 
                             <li>
                                 <a href="" class="nav-link px-0 align-middle">
-                                    <span class="items ms-1 d-none d-sm-inline">Reading Console Inputs</span>
+                                    <span class="items ms-1 d-none d-sm-inline">Elements</span>
                                 </a>
                             </li>
                         </ul>
@@ -130,10 +130,7 @@ if (!isset($_SESSION["username"])) {
                         <button type="button" class="btn btn-primary btn-success disabled">Take quiz</button>
                         <button type="button" class="btn btn-primary btn-success">Next</button>
                     </div>
-                    <h1>Welcome to Java Tutorials</h1>
-                    <h3>In this section you will learn the fundamentals of Java programming. Your learning will be
-                        supported by sample code and lots of exercises. Happy Learning!!!!
-                    </h3>
+                    <h1>Welcome to Html Tutorials</h1>
                 </div>
             </div>
         </div>
@@ -144,7 +141,7 @@ if (!isset($_SESSION["username"])) {
 
     <section id="smcon">
         <div class="smch bg-success">
-            <a class="courseHome" href="">Java Home</a>
+            <a class="courseHome" href="">Html Home</a>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-success" style="padding-left: 10px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
@@ -159,10 +156,10 @@ if (!isset($_SESSION["username"])) {
                         <a class="nav-link" href="">Intro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Ternary Operators</a>
+                        <a class="nav-link" href="">Tables</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Reading Console Inputs</a>
+                        <a class="nav-link" href="">Elements</a>
                     </li>
                 </ul>
             </div>
@@ -171,10 +168,7 @@ if (!isset($_SESSION["username"])) {
 
     <section id="smallMainCon">
         <div>
-            <h1>Welcome to Java Tutorials</h1>
-            <h3>In this section you will learn the fundamentals of Java programming. Your learning will be supported by
-                sample code and lots of exercises. Happy Learning!!!!
-            </h3>
+            <h1>Welcome to Html Tutorials</h1>
         </div>
         <div class="btn-group" role="group" aria-label="Basic example"
             style="position:fixed;bottom:20px;left:0;right:0;padding:20px;">
