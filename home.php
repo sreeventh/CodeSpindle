@@ -54,7 +54,7 @@ if (!isset($_SESSION["username"])) {
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="take_test.html">Take Test</a>
+                        <a class="nav-link" href="take_test.php">Take Test</a>
                     </li>
 
                     <li>
@@ -81,7 +81,8 @@ if (!isset($_SESSION["username"])) {
     <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
     <div class="container-fluid">
         <h1 style="text-align: center; margin-top: 20px;">
-            Welcome to CodeSpindle <?php
+            Welcome to CodeSpindle
+            <?php
             if (isset($_SESSION['username'])) {
                 echo $_SESSION['username'];
             }

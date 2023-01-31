@@ -82,7 +82,7 @@ if (array_key_exists('delbtn', $_POST)) {
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="take_test.html">Take Test</a>
+                        <a class="nav-link" href="take_test.php">Take Test</a>
                     </li>
 
                     <li>
