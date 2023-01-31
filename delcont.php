@@ -39,6 +39,7 @@ if (array_key_exists('delbtn', $_POST)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico">
     <!-- css boot -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -106,13 +107,13 @@ if (array_key_exists('delbtn', $_POST)) {
         </nav>
     </div>
 
-    <div class="container" id="newtdb" style="position:fixed; top: 10%; bottom: 0; left: 0; right: 0;">
+    <div class="container" style="position:relatve; border: 2px solid; width: 16%; height: 20%; text-align: justify; padding: 20px; margin-top:50px ; border-radius: 10px;" >
         <form id="delform" method="post"></form>
         <h5>Delete Test->
-            <?php echo $ename ?>
+            <?php echo $ename ?> ?
         </h5>
-        <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="yes">
-        <button onclick="location.href='set_test.php'" class="btn btn-danger">no</button>
+        <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="Yes">
+        <button onclick="location.href='set_test.php'" class="btn btn-danger">No</button>
     </div>
 
 

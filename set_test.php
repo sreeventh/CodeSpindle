@@ -147,7 +147,7 @@ if(isset($_POST["create"])){
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Duration</th>
-                                <th>Add Qun</th>
+                                <th>Questions</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                                 </tr>

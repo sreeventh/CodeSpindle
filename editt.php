@@ -106,44 +106,30 @@ if(isset($_POST["up"])){
  
         <!-- edit test -->
 
-        <div class="container" id="tqc">
-                <h5>Edit Test-> <?php echo $ename?></h5>
-                <button onclick="ch()"  class="btn btn-dark">Edit Test</button>
-                <button class="btn btn-dark">Edit Qun</button>
-                <a href="set_test.php"><button class="btn btn-danger">Cancel</button></a>
-        </div>
+        
 
-
+        
         <div class="container" id="newtdb" style="position:relative;top: 10%; bottom: 0; left: 0; right: 0;">
-            <form action="" method="POST">
+            <h4>Edit Test-> <?php echo $ename ?></h4>
+            <form id="editt" action="" method="POST"></form>
                 <div class="form-group">
                     <label for="tname">Test Name</label>
-                    <input type="text" name="tname" class="form-control" value="<?php echo $ename ?>">
+                    <input form="editt" type="text" name="tname" class="form-control" value="<?php echo $ename ?>">
                 </div>
                 <div class="form-group">
                     <label for="ttime">Duration</label>
-                    <input type="ttime" name="ttime" placeholder="(in min)" value="<?php echo $etime ?>" class="form-control">
+                    <input form="editt" type="ttime" name="ttime" placeholder="(in min)" value="<?php echo $etime ?>" class="form-control">
                 </div>
                 <br>
-                <input type="submit" name="up" value="Update" class="btn btn-dark">
-                <a>
+                <input form="editt" type="submit" name="up" value="Update" class="btn btn-dark">
+            
+            <a href="set_test.php" style="display: inline;">
                     <button class="btn btn-danger">Cancel</button>
-                </a>
-            </form>
+            </a>
                 
         </div>
 
-        <script>
-            document.getElementById("newtdb").style.display = "none";
-            function ch(){
-                document.getElementById("newtdb").style.display = "block";
-                document.getElementById("tqc").style.display = "none";
-            }
-            
-            function close(a) {
-                document.getElementById(a).style.display = "none";
-            }
-        </script>
+        
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 

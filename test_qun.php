@@ -209,6 +209,7 @@
                                 <th>Option 3</th>
                                 <th>Option 4</th>
                                 <th>Answer</th>
+                                <th>Edit</th>
                                 <th>Delete</th>
                                 </tr>
                             </thead>
@@ -281,6 +282,7 @@
                                         echo $ro["answer"];
                                     }
                                     ?></td>
+                                    <td><a href="editq.php?id=<?php echo $ro["qid"]; ?>" style="text-decoration: none;">✏</a></td>
                                     <td><a href="delconq.php?id=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none;">❌</a></td>
                                 </tr>
                                 <?php
