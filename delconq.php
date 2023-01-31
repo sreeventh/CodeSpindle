@@ -118,8 +118,8 @@ if (array_key_exists('delbtn', $_POST)) {
         <h5>Delete Question->
             <?php echo $qname ?>?
         </h5>
-        <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="yes">
-        <button onclick="location.href='set_test.php'" class="btn btn-danger">no</button>
+        <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="Yes">
+        <button onclick="location.href='set_test.php'" class="btn btn-danger">No</button>
     </div>
 
 
