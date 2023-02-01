@@ -13,6 +13,11 @@ mysqli_select_db($con, 'codespindle');
 
 $tname = $_GET['tname'];
 
+$rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
+while($rr = mysqli_fetch_array($rs)){
+    $dur = $rr['tdur'];
+}
+
 $res = mysqli_query($con, "select * from tqn where category = '$tname' ");
 $i = 0;
 while ($row = mysqli_fetch_assoc($res)) {
@@ -101,10 +106,11 @@ while ($row = mysqli_fetch_assoc($res)) {
     <!-- ----------------------------------------------------question paper------------------------------------------- -->
     <div id="ttable" class="container-fluid">
         <div class="card">
-            <div class="card-header" style="text-align: center; height: 50px;">
+            <div class="card-header" style="height: 50px;">
                 <strong class="card-title">
-                    <?php echo $tname ?> Test
+                    <?php echo $tname ?> Test<p id="ctd"></p>
                 </strong>
+                
 
             </div>
 
@@ -174,6 +180,21 @@ while ($row = mysqli_fetch_assoc($res)) {
 
     </div>
 
+    <script>
+        var start_time = new Date()
+        start_time.setMinutes(start_time.getMinutes() + <?php echo $dur; ?>)
+        alert(start_time)
+        function getTime1(){
+            
+            var time1 = new Date()
+            var time2 = new Date(start_time.getTime() - time1.getTime())    
+            time2.setMinutes(time2.getMinutes()-30);
+            document.getElementById("ctd").innerHTML=time1.getMinutes()+":"+time2.getSeconds();  
+            setTimeout("getTime1()" , 1000)
+
+        }
+        getTime1()
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
