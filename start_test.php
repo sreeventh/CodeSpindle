@@ -12,12 +12,11 @@ $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'codespindle');
 
 $tname = $_GET['tname'];
-
+$qun = [];
 $rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
 while($rr = mysqli_fetch_array($rs)){
     $dur = $rr['tdur'];
 }
-$duri = $dur * 60;
 
 $res = mysqli_query($con, "select * from tqn where category = '$tname' ");
 $i = 0;
@@ -119,10 +118,16 @@ while ($row = mysqli_fetch_assoc($res)) {
             <div class="card-body ccpd">
                 <form action="" method="post">
                     <?php
-                    for ($i = 0; $i < count($qun); $i++) {
-                        if(count($qun)<0){
-                            echo "fffffffffffffffffffffff";
-                        } else {
+                    if(empty($qun)){
+                        $duri = 6000;
+                        ?>
+                        <p style="text-align: center; font-size: xx-large; font-weight: lighter;">No Questions Available!</p>
+                        <script>
+                            document.getElementById("ctd").style.display="none"
+                        </script>
+                        <?php
+                    } else {
+                        for ($i = 0; $i < count($qun); $i++) {
                             ?>
                         <div class="card">
                             <div class="card-head">
@@ -189,7 +194,7 @@ while ($row = mysqli_fetch_assoc($res)) {
     <script>
         function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
-  setInterval(function () {
+  var x = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -199,13 +204,14 @@ while ($row = mysqli_fetch_assoc($res)) {
     display.textContent = minutes + ":" + seconds;
 
     if (--timer < 0) {
-      timer = duration;
+      clearInterval(x);
+      window.location.href = "results.php";
     }
   }, 1000);
 }
 
 window.onload = function () {
-  duri = <?php echo $duri ?>,
+  duri = <?php echo $dur*60 ?>,
     display = document.getElementById('ctd');
   startTimer(duri, display);
 };

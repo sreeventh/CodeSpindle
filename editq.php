@@ -137,7 +137,7 @@ if(isset($_POST["uqn"])){
                 </div>
                 <br>
                 <input form="uqf" type="submit" name="uqn" value="Update Qun" class="btn btn-dark">
-                <a href="set_test.php"><button class="btn btn-danger">Cancel</button></a>
+                <a href="test_qun.php?id=<?php echo $id; ?>"><button class="btn btn-danger">Cancel</button></a>
                 </form>
             </div>
 

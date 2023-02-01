@@ -27,7 +27,7 @@
         return;
         }
         $res = mysqli_query($con , "select * from tcat where tid = $id");
-        while($row = mysqli_fetch_assoc($res)){
+        while($row = mysqli_fetch_array($res)){
             $ename  = $row["tname"];
         }
 
