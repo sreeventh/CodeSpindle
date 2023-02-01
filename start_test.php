@@ -17,6 +17,7 @@ $rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
 while($rr = mysqli_fetch_array($rs)){
     $dur = $rr['tdur'];
 }
+$duri = $dur * 60;
 
 $res = mysqli_query($con, "select * from tqn where category = '$tname' ");
 $i = 0;
@@ -107,18 +108,22 @@ while ($row = mysqli_fetch_assoc($res)) {
     <div id="ttable" class="container-fluid">
         <div class="card">
             <div class="card-header" style="height: 50px;">
-                <strong class="card-title">
-                    <?php echo $tname ?> Test<p id="ctd"></p>
+                <strong class="card-title" id="ctd" style="color: crimson; font-size: xx-large;">
                 </strong>
+                <p style="display: inline; float: right; font-size: x-large; font-weight: bolder; font-style: oblique;">
+                    <?php echo $tname ?> Test
+                </p>
                 
-
             </div>
 
             <div class="card-body ccpd">
                 <form action="" method="post">
                     <?php
                     for ($i = 0; $i < count($qun); $i++) {
-                        ?>
+                        if(count($qun)<0){
+                            echo "fffffffffffffffffffffff";
+                        } else {
+                            ?>
                         <div class="card">
                             <div class="card-head">
                                 <strong class="card-title">
@@ -170,6 +175,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                             </div>
                         </div>
                         <?php
+                        }
                     }
                     ?>
 
@@ -181,19 +187,29 @@ while ($row = mysqli_fetch_assoc($res)) {
     </div>
 
     <script>
-        var start_time = new Date()
-        start_time.setMinutes(start_time.getMinutes() + <?php echo $dur; ?>)
-        alert(start_time)
-        function getTime1(){
-            
-            var time1 = new Date()
-            var time2 = new Date(start_time.getTime() - time1.getTime())    
-            time2.setMinutes(time2.getMinutes()-30);
-            document.getElementById("ctd").innerHTML=time1.getMinutes()+":"+time2.getSeconds();  
-            setTimeout("getTime1()" , 1000)
+        function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-        }
-        getTime1()
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+  }, 1000);
+}
+
+window.onload = function () {
+  duri = <?php echo $duri ?>,
+    display = document.getElementById('ctd');
+  startTimer(duri, display);
+};
+
     </script>
 
 
