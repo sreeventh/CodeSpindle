@@ -3,20 +3,36 @@
 session_start();
 
 
-if(!isset($_SESSION["username"]))
-{
+if (!isset($_SESSION["username"])) {
     header('location: index.php');
 }
 
-$con = mysqli_connect('localhost' , 'root');
+$con = mysqli_connect('localhost', 'root');
 
-mysqli_select_db($con,'codespindle');
+mysqli_select_db($con, 'codespindle');
+
+$tname = $_GET['tname'];
+
+$res = mysqli_query($con, "select * from tqn where category = '$tname' ");
+$i = 0;
+while ($row = mysqli_fetch_assoc($res)) {
+    $qun[$i] = $row['qun'];
+    $opt1[$i] = $row['opt1'];
+    $opt2[$i] = $row['opt2'];
+    $opt3[$i] = $row['opt3'];
+    $opt4[$i] = $row['opt4'];
+    $ans[$i] = $row['answer'];
+    $i++;
+
+}
+
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +40,10 @@ mysqli_select_db($con,'codespindle');
     <title>test start</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+
 <body>
     <!-------------------------------------------------------- navbar ------------------------------------------------------->
     <div class="navi bg-success">
@@ -79,13 +97,88 @@ mysqli_select_db($con,'codespindle');
             </div>
         </nav>
     </div>
-    
+
     <!-- ----------------------------------------------------question paper------------------------------------------- -->
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <div id="ttable" class="container-fluid">
+        <div class="card">
+            <div class="card-header" style="text-align: center; height: 50px;">
+                <strong class="card-title">
+                    <?php echo $tname ?> Test
+                </strong>
+
+            </div>
+
+            <div class="card-body ccpd">
+                <form action="" method="post">
+                    <?php
+                    for ($i = 0; $i < count($qun); $i++) {
+                        ?>
+                        <div class="card">
+                            <div class="card-head">
+                                <strong class="card-title">
+                                    <?php echo $i + 1; ?>
+                                </strong>
+                            </div>
+                            <div class="card-body">
+                                <table style="margin: 0px auto;">
+                                    <tr>
+                                        <td>
+                                            <textarea name="qun" id="qn" cols="100" rows="3"
+                                                style="text-align: left; resize: none;"><?php echo $qun[$i] ?></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="opt1">
+                                                <?php echo $opt1[$i] ?>
+                                            </label>
+                                            <input type="radio" name="opt">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="opt2">
+                                                <?php echo $opt2[$i] ?>
+                                            </label>
+                                            <input type="radio" name="opt">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="opt3">
+                                                <?php echo $opt3[$i] ?>
+                                            </label>
+                                            <input type="radio" name="opt">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="opt4">
+                                                <?php echo $opt4[$i] ?>
+                                            </label>
+                                            <input type="radio" name="opt">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -44,7 +44,7 @@
             else{
                 while($row = mysqli_fetch_array($res)){
                     $loop+=1;
-                    mysqli_query($con, "update tqn set question_no='$loop' where qid='"+$row['qid']+"'");
+                    mysqli_query($con, "update tqn set question_no='$loop' where qid='".$row['qid']."'");
                 }
             }
             $loop+=1;

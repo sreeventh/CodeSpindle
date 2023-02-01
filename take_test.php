@@ -9,6 +9,7 @@ if (!isset($_SESSION["username"])) {
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'codespindle');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +110,7 @@ mysqli_select_db($con, 'codespindle');
                             <th><?php echo $ct; ?></th>
                             <td><?php echo $row['tname'] ?></td>
                             <td><?php echo $row['tdur'] ?></td>
-                            <td><a href="" onclick="" style="text-decoration: none; font-size: x-large;">🏴</td>
+                            <td><a href="start_test.php?tname=<?php echo $row['tname'] ?>" style="text-decoration: none; font-size: x-large;">🏴</td>
                         </tr>
                         <?php
                     }
