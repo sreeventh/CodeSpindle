@@ -82,29 +82,6 @@ mysqli_select_db($con,'codespindle');
     
     <!-- ----------------------------------------------------question paper------------------------------------------- -->
     
-    <div id="countdowntimer" style="display: block; position: relative; top: 100px;">
-
-    </div>
-    
-    <script>
-        setInterval(function(){
-            timerqp();
-        }1000);
-        function timerqp(test){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function(){
-            if(xmlhttp.readyState==4 && xmlhttp.status==200){
-                if(xmlhttp.responseText=="00:00:01"){
-                    window.location="results.php";
-                }
-
-                document.getElementById("countdowntimer").innerHTML=xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET" , "load_timer.php",true );
-        xmlhttp.send(null);
-    }
-    </script>
     
     
     
