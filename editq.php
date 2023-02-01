@@ -3,9 +3,10 @@ session_start();
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con,'codespindle');
 
+$qid = $_GET['qid'];
 $id = $_GET['id'];
 
-$res = mysqli_query($con , "select * from tqn where qid=$id ");
+$res = mysqli_query($con , "select * from tqn where qid=$qid ");
 while($row = mysqli_fetch_array($res)){
     $qun = $row["qun"];
     $opt1 = $row["opt1"];
@@ -16,12 +17,12 @@ while($row = mysqli_fetch_array($res)){
 }
 
 if(isset($_POST["uqn"])){
-    $uqnt = "update tqn set qun = '$_POST[qname]' , opt1 = '$_POST[op1]' , opt2 = '$_POST[op2]' , opt3 = '$_POST[op3]' , opt4 = '$_POST[op4]' , answer = '$_POST[ans]' where qid = $id ";
+    $uqnt = "update tqn set qun = '$_POST[qname]' , opt1 = '$_POST[op1]' , opt2 = '$_POST[op2]' , opt3 = '$_POST[op3]' , opt4 = '$_POST[op4]' , answer = '$_POST[ans]' where qid = $qid ";
     $update_result = mysqli_query( $con , $uqnt ) or die ('Unable to execute query. '. mysqli_error($con));
     ?>
     <script>
         alert("Question Updated Successfully")
-        window.location.href = "set_test.php"
+        window.location.href = "test_qun.php?id=<?php echo $id; ?>";
     </script>
     <?php
 }

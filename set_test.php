@@ -164,9 +164,9 @@ if(isset($_POST["create"])){
                                             <th><?php echo $count; ?></th>
                                             <td><?php echo $row['tname']; ?></td>
                                             <td><?php echo $row['tdur']; ?></td>
-                                            <td><a href="test_qun.php? id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:green; font-size: xx-large; ;">+</a></td>
-                                            <td><a href="editt.php? id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:orange">✏</a></td>
-                                            <td><a href="delcont.php? id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:crimson">❌</a></td>
+                                            <td><a href="test_qun.php?id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:green; font-size: xx-large; ;">+</a></td>
+                                            <td><a href="editt.php?id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:orange">✏</a></td>
+                                            <td><a href="delcont.php?id=<?php echo $row['tid']; ?>" style="text-decoration: none; color:crimson">❌</a></td>
                                         </tr>    
                                         <?php
                                         
