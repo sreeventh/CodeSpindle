@@ -158,14 +158,16 @@ if (isset($_POST["create"])) {
                             $count = 0;
                             $test = mysqli_query($con, "select * from tcat");
                             while ($row = mysqli_fetch_array($test)) {
-                                if($row['deploy_stat']==1){
-                                    ?>
-                                    <script>
-                                        document.getElementById("sts").style.backgroundColor="crimson"
-                                    </script>
-                                    <?php
-                                }
                                 $count += 1;
+                                for ($i = 0; $i < $count; $i++) {
+                                    if ($row['deploy_stat'] == 1) {
+                                        ?>
+                                        <script>
+                                            document.getElementById("sts").style.backgroundColor = "green"
+                                        </script>
+                                        <?php
+                                    }
+                                }
                                 ?>
                                 <tr>
                                     <th>
@@ -184,7 +186,8 @@ if (isset($_POST["create"])) {
                                     <td><a href="delcont.php?id=<?php echo $row['tid']; ?>"
                                             style="text-decoration: none; color:crimson; font-size: x-large;">❌</a></td>
                                     <td style="font-size: x-large;" id="sts">
-                                        <a onclick="opan('dtdb','<?php echo $row['tid']; ?>')" style="cursor: pointer; text-decoration: none;">🚀</a>
+                                        <a onclick="opan('dtdb','<?php echo $row['tid']; ?>')"
+                                            style="cursor: pointer; text-decoration: none;">🚀</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -220,9 +223,10 @@ if (isset($_POST["create"])) {
 
     <div class="container_fluid" id="dtdb" style="position:absolute;left: 100px;bottom:300px; z-index:2;">
         <form action="deploy.php" method="post" name="dt" id="dt"></form>
+        <form action="ddeploy.php" method="post" name="ddt" id="ddt"></form>
         <label for="dep">Deploy Test</label>
         <input form="dt" type="submit" name="deploy" value="Deploy" class="btn btn-dark">
-        <input type="hidden" form="dt" name="tid" id="tid" value=""> 
+        <input type="hidden" form="dt" name="tid" id="tid" value="">
         <button onclick="close1('dtdb')" class="btn btn-danger">Abort</button>
     </div>
 
@@ -230,9 +234,9 @@ if (isset($_POST["create"])) {
     <script>
         document.getElementById("newtdb").style.display = "none";
         document.getElementById("dtdb").style.display = "none"
-        
-        
-        function opan(a,id) {
+
+
+        function opan(a, id) {
             document.getElementById(a).style.display = "block";
             document.getElementById("tid").value = id;
             document.getElementById("setest").style.opacity = "20%";
@@ -274,7 +278,7 @@ if (isset($_POST["create"])) {
         }
     </script>
 
-        
+
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -284,8 +288,3 @@ if (isset($_POST["create"])) {
 </body>
 
 </html>
-
-
-
-
-   
