@@ -10,6 +10,10 @@ $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'codespindle');
 
+
+if(isset($_POST["deploy"])){
+    header("Location:deploy.php");
+}
 if (isset($_POST["create"])) {
 
     $dup_name = $_POST['tname'];
@@ -177,7 +181,7 @@ if (isset($_POST["create"])) {
                                     <td><a href="delcont.php?id=<?php echo $row['tid']; ?>"
                                             style="text-decoration: none; color:crimson; font-size: x-large;">❌</a></td>
                                     <td style="font-size: x-large;">
-                                        <a onclick="opa('dtdb')" style="cursor: pointer; text-decoration: none;">🚀</a>
+                                        <a onclick="opa('dtdb','<?php echo $row['tid']; ?>')" style="cursor: pointer; text-decoration: none;">🚀</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -214,7 +218,8 @@ if (isset($_POST["create"])) {
     <div class="container_fluid" id="dtdb" style="position:absolute;left: 100px;bottom:300px; z-index:2;">
         <form action="" method="post" name="dt" id="dt"></form>
         <label for="dep">Deploy Test</label>
-        <input form="dt" type="submit" name="dep" value="Deploy" class="btn btn-dark">
+        <input form="dt" type="submit" name="deploy" value="Deploy" class="btn btn-dark">
+        <input type="hidden" form="dt" name="tid" id="tid" value=""> 
         <button onclick="close1('dtdb')" class="btn btn-danger">Abort</button>
     </div>
 
@@ -222,7 +227,17 @@ if (isset($_POST["create"])) {
     <script>
         document.getElementById("newtdb").style.display = "none";
         document.getElementById("dtdb").style.display = "none"
+        
+        
+        function opan(a,id) {
+            document.getElementById(a).style.display = "block";
+            document.getElementById("tid").value = id;
+            document.getElementById("setest").style.opacity = "20%";
+            document.getElementById("navii").style.opacity = "20%";
+            document.getElementById("setest").style.zIndex = "-1";
+            document.getElementById("navii").style.zIndex = "-1";
 
+        }
         function opa(a) {
             document.getElementById(a).style.display = "block";
             document.getElementById("setest").style.opacity = "20%";
@@ -237,7 +252,6 @@ if (isset($_POST["create"])) {
             document.getElementById("setest").style.zIndex = "initial";
             document.getElementById("navii").style.zIndex = "initial";
             document.getElementById(a).style.display = "none";
-
         }
 
         function nullw() {
@@ -256,7 +270,7 @@ if (isset($_POST["create"])) {
             return true;
         }
     </script>
-    
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
