@@ -102,7 +102,8 @@ mysqli_select_db($con, 'codespindle');
                 <tbody>
                     <?php
                     $ct = 0;
-                    $res = mysqli_query($con, "select * from tcat");
+                    $stat = 1;
+                    $res = mysqli_query($con, "select * from tcat where deploy_stat=$stat");
                     while ($row = mysqli_fetch_array($res)) {
                         $ct += 1;
                         ?>

@@ -107,7 +107,7 @@ if (array_key_exists('delbtn', $_POST)) {
         </nav>
     </div>
 
-    <div class="container" style="position:relatve; border: 2px solid; width: 16%; height: 20%; text-align: justify; padding: 20px; margin-top:50px ; border-radius: 10px;" >
+    <div class="container" id="newtdb" style="position:relative; border: 2px solid;border-radius: 10px;" >
         <form id="delform" method="post"></form>
         <h5>Delete Test->
             <?php echo $ename ?> ?
