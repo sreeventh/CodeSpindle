@@ -179,18 +179,20 @@ if (isset($_POST["create"])) {
                                     <?php
                                     if ($row['deploy_stat'] == 1) {
                                         ?>
-                                        <td style="font-size: x-large; background-color: aqua;">
-                                            <?php
+                                        <td style="font-size: x-large;">
+                                            <a onclick="opat('ud' , '<?php echo $row['tid']; ?>' )"
+                                                style="cursor: pointer; text-decoration: none;">🔪</a>
+                                        </td>
+                                        <?php
                                     } else {
                                         ?>
                                         <td style="font-size: x-large;">
-                                            <?php
+                                            <a onclick="opan('dtdb','<?php echo $row['tid']; ?>')"
+                                                style="cursor: pointer; text-decoration: none;">🚀</a>
+                                        </td>
+                                        <?php
                                     }
                                     ?>
-
-                                        <a onclick="opan('dtdb','<?php echo $row['tid']; ?>')"
-                                            style="cursor: pointer; text-decoration: none;">🚀</a>
-                                    </td>
                                 </tr>
                                 <?php
 
@@ -227,20 +229,36 @@ if (isset($_POST["create"])) {
         <form action="deploy.php" method="post" name="dt" id="dt"></form>
         <label for="dep">Deploy Test</label>
         <input form="dt" type="submit" name="deploy" value="Deploy" class="btn btn-dark">
-        <input type="submit" name="ddeploy" form="dt" value="Kill" class="btn btn-dark">
         <input type="hidden" form="dt" name="tid" id="tid" value="">
         <button onclick="close1('dtdb')" class="btn btn-danger">Abort</button>
+    </div>
+
+    <!-- ----------------------------------dbox for new undeploy test---------------------------------- -->
+    <div class="container-fluid" id="ud" style="position:absolute;left: 100px;bottom:300px; z-index:2;">
+        <form action="undeploy.php" method="post" name="ut" id="ut"></form>
+        <input type="submit" name="undeploy" form="ut" value="Kill" class="btn btn-dark">
+        <input type="hidden" form="ut" name="ttid" id="ttid" value="">
+        <button onclick="close1('ud')" class="btn btn-danger">Abort</button>
     </div>
 
     <!-- ------------------------------------------------------------script------------------------------------------------------------ -->
     <script>
         document.getElementById("newtdb").style.display = "none";
         document.getElementById("dtdb").style.display = "none"
-
+        document.getElementById("ud").style.display = "none"
 
         function opan(a, id) {
             document.getElementById(a).style.display = "block";
             document.getElementById("tid").value = id;
+            document.getElementById("setest").style.opacity = "20%";
+            document.getElementById("navii").style.opacity = "20%";
+            document.getElementById("setest").style.zIndex = "-1";
+            document.getElementById("navii").style.zIndex = "-1";
+
+        }
+        function opat(a, id) {
+            document.getElementById(a).style.display = "block";
+            document.getElementById("ttid").value = id;
             document.getElementById("setest").style.opacity = "20%";
             document.getElementById("navii").style.opacity = "20%";
             document.getElementById("setest").style.zIndex = "-1";
