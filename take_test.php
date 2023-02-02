@@ -93,8 +93,8 @@ mysqli_select_db($con, 'codespindle');
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Test</th>
-                        <th>Duration</th>
+                        <th style="font-size: xx-large;">✍</th>
+                        <th style="font-size: xx-large;">🕕</th>
                         <th>Take Test</th>
                     </tr>
                 </thead>
@@ -110,7 +110,7 @@ mysqli_select_db($con, 'codespindle');
                             <th><?php echo $ct; ?></th>
                             <td><?php echo $row['tname'] ?></td>
                             <td><?php echo $row['tdur'] ?></td>
-                            <td><a href="start_test.php?tname=<?php echo $row['tname'] ?>" style="text-decoration: none; font-size: x-large;">🏴</td>
+                            <td><a href="start_test.php?tname=<?php echo $row['tname'] ?>" style="text-decoration: none; font-size: xx-large;">🚩</td>
                         </tr>
                         <?php
                     }
