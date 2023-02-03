@@ -227,7 +227,6 @@ if (isset($_POST["create"])) {
 
     <div class="container_fluid" id="dtdb" style="position:absolute;left: 100px;bottom:300px; z-index:2;">
         <form action="deploy.php" method="post" name="dt" id="dt"></form>
-        <label for="dep">Deploy Test</label>
         <input form="dt" type="submit" name="deploy" value="Deploy" class="btn btn-dark">
         <input type="hidden" form="dt" name="tid" id="tid" value="">
         <button onclick="close1('dtdb')" class="btn btn-danger">Abort</button>

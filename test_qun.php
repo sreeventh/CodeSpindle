@@ -202,15 +202,15 @@
                         <table class="table table-bordered" style="text-align: center;">
                             <thead>
                                 <tr>
-                                <th>#</th>
-                                <th>Question</th>
-                                <th>Option 1</th>
-                                <th>Option 2</th>
-                                <th>Option 3</th>
-                                <th>Option 4</th>
-                                <th>Answer</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th style="font-size: x-large; font-weight: lighter;">#</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Question</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Option 1</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Option 2</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Option 3</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Option 4</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Answer</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Edit</th>
+                                <th style="font-size: x-large; font-weight: lighter;">Delete</th>
                                 </tr>
                             </thead>
 
@@ -282,8 +282,8 @@
                                         echo $ro["answer"];
                                     }
                                     ?></td>
-                                    <td><a href="editq.php?id=<?php echo $id; ?>&qid=<?php echo $ro["qid"]; ?>" style="text-decoration: none;">✏</a></td>
-                                    <td><a href="delconq.php?id=<?php echo $id; ?>&qid=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none;">❌</a></td>
+                                    <td><a href="editq.php?id=<?php echo $id; ?>&qid=<?php echo $ro["qid"]; ?>" style="text-decoration: none; font-size: x-large;">✏</a></td>
+                                    <td><a href="delconq.php?id=<?php echo $id; ?>&qid=<?php echo $ro["qid"]; ?>" style="color:red; text-decoration: none; font-size: x-large;">❌</a></td>
                                 </tr>
                                 <?php
                             }
