@@ -16,6 +16,7 @@ $qun = [];
 $rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
 while ($rr = mysqli_fetch_array($rs)) {
     $dur = $rr['tdur'];
+    $id = $rr['tid'];
 }
 
 $res = mysqli_query($con, "select * from tqn where category = '$tname' ");
@@ -191,10 +192,14 @@ while ($row = mysqli_fetch_assoc($res)) {
         </div>
 
     </div>
-
+<!-- ----------------------------------------------------count-down timer------------------------------------------- -->
     <script>
-        function startTimer(duration, display) {
+       function startTimer(testId, duration, display) {
             var timer = duration, minutes, seconds;
+            var localStorageKey = "timer-" + testId;
+            if (localStorage.getItem(localStorageKey)) {
+                timer = localStorage.getItem(localStorageKey);
+            }
             var x = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
@@ -203,26 +208,33 @@ while ($row = mysqli_fetch_assoc($res)) {
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
                 display.textContent = minutes + ":" + seconds;
-                /*****************************************/ 
-                
-                
-                /*****************************************/ 
 
                 if (--timer < 0) {
                     clearInterval(x);
                     window.location.href = "results.php";
+                } else {
+                    localStorage.setItem(localStorageKey, timer);
                 }
             }, 1000);
         }
 
         window.onload = function () {
-            duri = <?php echo $dur * 60 ?>,
+            testId = <?php echo $id ?>,
+                duri = <?php echo $dur * 60 ?>,
                 display = document.getElementById('ctd');
-            startTimer(duri, display);
+            startTimer(testId, duri, display);
         };
 
-    </script>
+        // Clear the old timer value when the new duration is saved
+        td = <?php echo $id; ?>
+        if (window.location.pathname === "/editt.php") {
+            document.getElementById("editt").addEventListener("submit", function () {
+                localStorage.removeItem("timer-" + td);
+            });
+        }
 
+    </script>
+<!-- --------------------------- --------------------------- ---------------------------  --------------------------- -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
