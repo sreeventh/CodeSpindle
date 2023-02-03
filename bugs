@@ -4,7 +4,7 @@
 3) delconq -> test_qun.php redirection undefined arraykay error (get method) - FIXED
 4) duplicate test names - FIXED
 6) null start_test qun redirection - FIXED
-7) 
+7) countdown timer not updating || not restarting once reaching 0 || (may require total re-design)
 
 Personal Ref
 
