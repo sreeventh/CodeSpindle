@@ -14,7 +14,7 @@ mysqli_select_db($con, 'codespindle');
 $tname = $_GET['tname'];
 $qun = [];
 $rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
-while($rr = mysqli_fetch_array($rs)){
+while ($rr = mysqli_fetch_array($rs)) {
     $dur = $rr['tdur'];
 }
 
@@ -112,74 +112,75 @@ while ($row = mysqli_fetch_assoc($res)) {
                 <p style="display: inline; float: right; font-size: x-large; font-weight: bolder; font-style: oblique;">
                     <?php echo $tname ?> Test
                 </p>
-                
+
             </div>
 
             <div class="card-body ccpd">
                 <form action="" method="post">
                     <?php
-                    if(empty($qun)){
+                    if (empty($qun)) {
                         $duri = 6000;
                         ?>
-                        <p style="text-align: center; font-size: xx-large; font-weight: lighter;">No Questions Available!</p>
+                        <p style="text-align: center; font-size: xx-large; font-weight: lighter;">No Questions Available!
+                        </p>
                         <script>
-                            document.getElementById("ctd").style.display="none"
+                            document.getElementById("ctd").style.display = "none"
                         </script>
                         <?php
                     } else {
                         for ($i = 0; $i < count($qun); $i++) {
                             ?>
-                        <div class="card">
-                            <div class="card-head">
-                                <strong class="card-title">
-                                    <?php echo $i + 1; ?>
-                                </strong>
-                            </div>
-                            <div class="card-body">
-                                <table style="margin: 0px auto;">
-                                    <tr>
-                                        <td>
-                                            <textarea name="qun" id="qn" cols="100" rows="3"
-                                                style="text-align: left; resize: none;"><?php echo $qun[$i] ?></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="opt1">
-                                                <?php echo $opt1[$i] ?>
-                                            </label>
-                                            <input type="radio" name="opt">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="opt2">
-                                                <?php echo $opt2[$i] ?>
-                                            </label>
-                                            <input type="radio" name="opt">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="opt3">
-                                                <?php echo $opt3[$i] ?>
-                                            </label>
-                                            <input type="radio" name="opt">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="opt4">
-                                                <?php echo $opt4[$i] ?>
-                                            </label>
-                                            <input type="radio" name="opt">
-                                        </td>
-                                    </tr>
+                            <div class="card">
+                                <div class="card-head">
+                                    <strong class="card-title">
+                                        <?php echo $i + 1; ?>
+                                    </strong>
+                                </div>
+                                <div class="card-body">
+                                    <table style="margin: 0px auto;">
+                                        <tr>
+                                            <td>
+                                                <textarea name="qun" id="qn" cols="100" rows="3"
+                                                    style="text-align: left; resize: none;"><?php echo $qun[$i] ?></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="opt1">
+                                                    <?php echo $opt1[$i] ?>
+                                                </label>
+                                                <input type="radio" name="opt">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="opt2">
+                                                    <?php echo $opt2[$i] ?>
+                                                </label>
+                                                <input type="radio" name="opt">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="opt3">
+                                                    <?php echo $opt3[$i] ?>
+                                                </label>
+                                                <input type="radio" name="opt">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="opt4">
+                                                    <?php echo $opt4[$i] ?>
+                                                </label>
+                                                <input type="radio" name="opt">
+                                            </td>
+                                        </tr>
 
-                                </table>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <?php
+                            <?php
                         }
                     }
                     ?>
@@ -193,28 +194,32 @@ while ($row = mysqli_fetch_assoc($res)) {
 
     <script>
         function startTimer(duration, display) {
-  var timer = duration, minutes, seconds;
-  var x = setInterval(function () {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
+            var timer = duration, minutes, seconds;
+            var x = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    display.textContent = minutes + ":" + seconds;
+                display.textContent = minutes + ":" + seconds;
+                /*****************************************/ 
+                
+                
+                /*****************************************/ 
 
-    if (--timer < 0) {
-      clearInterval(x);
-      window.location.href = "results.php";
-    }
-  }, 1000);
-}
+                if (--timer < 0) {
+                    clearInterval(x);
+                    window.location.href = "results.php";
+                }
+            }, 1000);
+        }
 
-window.onload = function () {
-  duri = <?php echo $dur*60 ?>,
-    display = document.getElementById('ctd');
-  startTimer(duri, display);
-};
+        window.onload = function () {
+            duri = <?php echo $dur * 60 ?>,
+                display = document.getElementById('ctd');
+            startTimer(duri, display);
+        };
 
     </script>
 
