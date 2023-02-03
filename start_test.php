@@ -192,9 +192,9 @@ while ($row = mysqli_fetch_assoc($res)) {
         </div>
 
     </div>
-<!-- ----------------------------------------------------count-down timer------------------------------------------- -->
+    <!-- ----------------------------------------------------count-down timer------------------------------------------- -->
     <script>
-       function startTimer(testId, duration, display) {
+        function startTimer(testId, duration, display) {
             var timer = duration, minutes, seconds;
             var localStorageKey = "timer-" + testId;
             if (localStorage.getItem(localStorageKey)) {
@@ -226,15 +226,14 @@ while ($row = mysqli_fetch_assoc($res)) {
         };
 
         // Clear the old timer value when the new duration is saved
-        td = <?php echo $id; ?>
         if (window.location.pathname === "/editt.php") {
             document.getElementById("editt").addEventListener("submit", function () {
-                localStorage.removeItem("timer-" + td);
+                localStorage.removeItem("timer-" + testId);
             });
         }
 
     </script>
-<!-- --------------------------- --------------------------- ---------------------------  --------------------------- -->
+    <!-- --------------------------- --------------------------- ---------------------------  --------------------------- -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
