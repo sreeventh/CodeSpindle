@@ -3,9 +3,8 @@
 2) give scrolling function to card  - FIXED
 3) delconq -> test_qun.php redirection undefined arraykay error (get method) - FIXED
 4) duplicate test names - FIXED
-5) responsive delete_test dialog box req
-6) null start_test qun redirection
-
+6) null start_test qun redirection - FIXED
+7) 
 
 Personal Ref
 
@@ -13,6 +12,10 @@ Personal Ref
 
 
 #doubts -> 
+passing ids
+
+take as exercise->
+del test appear as dbox
 
 
 
@@ -26,6 +29,7 @@ Personal Ref
 5) qun image flexible Option
 6) re-design home page
 7) carousel for home page
+8) responsiveness for quiz modules
 
 
 
