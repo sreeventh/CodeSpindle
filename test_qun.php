@@ -34,7 +34,6 @@
         if(isset($_POST["aqn"])){
             $loop=0;
             $count=0;
-
             $res = mysqli_query($con , "select * from tqn where category='$ename' order by qid asc ") or die(mysqli_error($con));
             $count = mysqli_num_rows($res);
 
@@ -48,7 +47,7 @@
                 }
             }
             $loop+=1;
-            mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$_POST[qname]' , '$_POST[op1]' , '$_POST[op2]' , '$_POST[op3]' , '$_POST[op4]' , '$_POST[ans]' , '$ename' )") or die(mysqli_error($con)) ;
+            mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$_POST[qname]' , '$_POST[op1]' , '$_POST[op2]' , '$_POST[op3]' , '$_POST[op4]' , '".$_POST[$_POST['opta']]."' , '$ename' )") or die(mysqli_error($con)) ;
 
             ?>
             <script>
@@ -307,27 +306,30 @@
                 </div>
                 <div class="form-group">
                     <label for="op1">Option 1</label>
+                    <input form="qf" type="radio" name="opta" id="opt1" value="op1">
                     <textarea cols="10" rows="2" form="qf" type="text" name="op1" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2">Option 2</label>
+                    <input form="qf" type="radio" name="opta" id="opt2" value="op2">
                     <textarea cols="10" rows="2" form="qf" type="text" name="op2" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op3">Option 3</label>
+                    <input form="qf" type="radio" name="opta" id="opt3" value="op3">
                     <textarea cols="10" rows="2" form="qf" type="text" name="op3" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op4">Option 4</label>
+                    <input form="qf" type="radio" name="opta" id="opt4" value="op4">
                     <textarea cols="10" rows="2" form="qf" type="text" name="op4" class="form-control"></textarea>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="ans">Answer</label>
                     <textarea cols="10" rows="2" form="qf" type="text" name="ans" class="form-control"></textarea>
-                </div>
+                </div> -->
                 <br>
                 <input form="qf" type="submit" name="aqn" value="Add Qun" class="btn btn-dark">
-                <!-- DOUBT <a href="test_qun.php"><button class="btn btn-danger">Cancel</button></a> -->
                 <button onclick="clos('addqf')" class="btn btn-danger">Cancel</button>
         </div>
 
@@ -341,24 +343,28 @@
                 </div>
                 <div class="form-group">
                     <label for="op1">Option 1 Image</label>
+                    <input form="imf" type="radio" name="opta" id="opt1" value="op1">
                     <input form="imf" type="file" name="iop1" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="op2">Option 2 Image</label>
+                    <input form="imf" type="radio" name="opta" id="opt2" value="op2">
                     <input form="imf" type="file" name="iop2" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="op3">Option 3 Image</label>
+                    <input form="imf" type="radio" name="opta" id="opt3" value="op3">
                     <input form="imf" type="file" name="iop3" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="op4">Option 4 Image</label>
+                    <input form="imf" type="radio" name="opta" id="opt4" value="op4">
                     <input form="imf" type="file" name="iop4" class="form-control">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="ans">Answer Image</label>
                     <input form="imf" type="file" name="ians" class="form-control">
-                </div>
+                </div> -->
                 <br>
                 <input form="imf" type="submit" name="aqni" value="Add Qun" class="btn btn-dark">
                 <button onclick="clos('addimg')" class="btn btn-danger">Cancel</button>

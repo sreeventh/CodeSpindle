@@ -117,24 +117,28 @@ if(isset($_POST["uqn"])){
                 </div>
                 <div class="form-group">
                     <label for="op1" style="font-size: large; font-weight: bold;">Option 1</label>
+                    <input type="radio" name="opta" id="opt1" value="opt1">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op1" class="form-control"><?php echo $opt1 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2" style="font-size: large; font-weight: bold;">Option 2</label>
+                    <input type="radio" name="opta" id="opt2" value="opt2">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op2" class="form-control"><?php echo $opt2 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op3" style="font-size: large; font-weight: bold;">Option 3</label>
+                    <input type="radio" name="opta" id="opt3" value="opt3">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op3" class="form-control"><?php echo $opt3 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op4" style="font-size: large; font-weight: bold;">Option 4</label>
+                    <input type="radio" name="opta" id="opt4" value="opt4">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op4" class="form-control"><?php echo $opt4 ?></textarea>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="ans" style="font-size: large; font-weight: bold;">Answer</label>
                     <textarea cols="10" rows="2" form="uqf" type="text" name="ans" class="form-control"><?php echo $ans ?></textarea>
-                </div>
+                </div> -->
                 <br>
                 <input form="uqf" type="submit" name="uqn" value="Update Qun" class="btn btn-dark">
                 <a href="test_qun.php?id=<?php echo $id; ?>"><button class="btn btn-danger">Cancel</button></a>
