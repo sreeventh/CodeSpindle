@@ -134,6 +134,11 @@ if (isset($_POST["up"])) {
         </a>
 
     </div>
+    <script>
+        document.getElementById("editt").addEventListener("submit", function () {
+                localStorage.removeItem("timer-" + <?php echo $id; ?>);
+            });
+    </script>
 
 
     <!-- JavaScript Bundle with Popper -->

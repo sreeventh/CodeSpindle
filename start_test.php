@@ -150,7 +150,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt1">
                                                     <?php echo $opt1[$i] ?>
                                                 </label>
-                                                <input type="radio" name="opt">
+                                                <input type="radio" name=<?php echo $i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -158,7 +158,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt2">
                                                     <?php echo $opt2[$i] ?>
                                                 </label>
-                                                <input type="radio" name="opt">
+                                                <input type="radio" name=<?php echo $i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -166,7 +166,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt3">
                                                     <?php echo $opt3[$i] ?>
                                                 </label>
-                                                <input type="radio" name="opt">
+                                                <input type="radio" name=<?php echo $i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -174,7 +174,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt4">
                                                     <?php echo $opt4[$i] ?>
                                                 </label>
-                                                <input type="radio" name="opt">
+                                                <input type="radio" name=<?php echo $i; ?>>
                                             </td>
                                         </tr>
 
@@ -200,6 +200,8 @@ while ($row = mysqli_fetch_assoc($res)) {
             if (localStorage.getItem(localStorageKey)) {
                 timer = localStorage.getItem(localStorageKey);
             }
+           
+        
             var x = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
@@ -211,13 +213,12 @@ while ($row = mysqli_fetch_assoc($res)) {
 
                 if (--timer < 0) {
                     clearInterval(x);
-                    window.location.href = "results.php";
+                    window.location.href = "results.php?id=<?php echo $id; ?>";
                 } else {
                     localStorage.setItem(localStorageKey, timer);
                 }
             }, 1000);
         }
-
         window.onload = function () {
             testId = <?php echo $id ?>,
                 duri = <?php echo $dur * 60 ?>,
@@ -225,12 +226,6 @@ while ($row = mysqli_fetch_assoc($res)) {
             startTimer(testId, duri, display);
         };
 
-        // Clear the old timer value when the new duration is saved
-        if (window.location.pathname === "/editt.php") {
-            document.getElementById("editt").addEventListener("submit", function () {
-                localStorage.removeItem("timer-" + testId);
-            });
-        }
 
     </script>
     <!-- --------------------------- --------------------------- ---------------------------  --------------------------- -->
