@@ -17,6 +17,7 @@ $rs = mysqli_query($con, "select * from tcat where tname = '$tname' ");
 while ($rr = mysqli_fetch_array($rs)) {
     $dur = $rr['tdur'];
     $id = $rr['tid'];
+    $tname = $rr['tname'];
 }
 
 $res = mysqli_query($con, "select * from tqn where category = '$tname' ");
@@ -117,7 +118,7 @@ while ($row = mysqli_fetch_assoc($res)) {
             </div>
 
             <div class="card-body ccpd">
-                <form action="" method="post">
+                <form action="results.php?id=<?php echo $tname; ?>" method="post">
                     <?php
                     if (empty($qun)) {
                         $duri = 6000;
@@ -141,7 +142,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                     <table style="margin: 0px auto;">
                                         <tr>
                                             <td>
-                                                <textarea name="qun" id="qn" cols="100" rows="3"
+                                                <textarea name="qun" id="qn" cols="100" rows="5" readonly
                                                     style="text-align: left; resize: none;"><?php echo $qun[$i] ?></textarea>
                                             </td>
                                         </tr>
@@ -150,7 +151,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt1">
                                                     <?php echo $opt1[$i] ?>
                                                 </label>
-                                                <input type="radio" name=<?php echo $i; ?>>
+                                                <input value="<?php echo $opt1[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -158,7 +159,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt2">
                                                     <?php echo $opt2[$i] ?>
                                                 </label>
-                                                <input type="radio" name=<?php echo $i; ?>>
+                                                <input value="<?php echo $opt2[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -166,7 +167,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt3">
                                                     <?php echo $opt3[$i] ?>
                                                 </label>
-                                                <input type="radio" name=<?php echo $i; ?>>
+                                                <input value="<?php echo $opt3[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
                                         </tr>
                                         <tr>
@@ -174,7 +175,7 @@ while ($row = mysqli_fetch_assoc($res)) {
                                                 <label for="opt4">
                                                     <?php echo $opt4[$i] ?>
                                                 </label>
-                                                <input type="radio" name=<?php echo $i; ?>>
+                                                <input value="<?php echo $opt4[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
                                         </tr>
 
@@ -183,6 +184,9 @@ while ($row = mysqli_fetch_assoc($res)) {
                             </div>
                             <?php
                         }
+                        ?>
+                        <input type="submit" value="End Test" class="btn btn-dark">
+                        <?php
                     }
                     ?>
 
