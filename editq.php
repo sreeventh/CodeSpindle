@@ -13,11 +13,11 @@ while($row = mysqli_fetch_array($res)){
     $opt2 = $row["opt2"];
     $opt3 = $row["opt3"];
     $opt4 = $row["opt4"];
-    $ans = $row["answer"];
+    // $ans = $row["answer"];
 }
 
 if(isset($_POST["uqn"])){
-    $uqnt = "update tqn set qun = '$_POST[qname]' , opt1 = '$_POST[op1]' , opt2 = '$_POST[op2]' , opt3 = '$_POST[op3]' , opt4 = '$_POST[op4]' , answer = '$_POST[ans]' where qid = $qid ";
+    $uqnt = "update tqn set qun = '$_POST[qname]' , opt1 = '$_POST[op1]' , opt2 = '$_POST[op2]' , opt3 = '$_POST[op3]' , opt4 = '$_POST[op4]' , answer = '".$_POST[$_POST['opta']]."' where qid = $qid ";
     $update_result = mysqli_query( $con , $uqnt ) or die ('Unable to execute query. '. mysqli_error($con));
     ?>
     <script>
@@ -117,28 +117,24 @@ if(isset($_POST["uqn"])){
                 </div>
                 <div class="form-group">
                     <label for="op1" style="font-size: large; font-weight: bold;">Option 1</label>
-                    <input type="radio" name="opta" id="opt1" value="opt1">
+                    <input type="radio" name="opta" id="op1" value="op1">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op1" class="form-control"><?php echo $opt1 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2" style="font-size: large; font-weight: bold;">Option 2</label>
-                    <input type="radio" name="opta" id="opt2" value="opt2">
+                    <input type="radio" name="opta" id="op2" value="op2">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op2" class="form-control"><?php echo $opt2 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op3" style="font-size: large; font-weight: bold;">Option 3</label>
-                    <input type="radio" name="opta" id="opt3" value="opt3">
+                    <input type="radio" name="opta" id="op3" value="op3">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op3" class="form-control"><?php echo $opt3 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op4" style="font-size: large; font-weight: bold;">Option 4</label>
-                    <input type="radio" name="opta" id="opt4" value="opt4">
+                    <input type="radio" name="opta" id="op4" value="op4">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op4" class="form-control"><?php echo $opt4 ?></textarea>
                 </div>
-                <!-- <div class="form-group">
-                    <label for="ans" style="font-size: large; font-weight: bold;">Answer</label>
-                    <textarea cols="10" rows="2" form="uqf" type="text" name="ans" class="form-control"><?php echo $ans ?></textarea>
-                </div> -->
                 <br>
                 <input form="uqf" type="submit" name="uqn" value="Update Qun" class="btn btn-dark">
                 <a href="test_qun.php?id=<?php echo $id; ?>"><button class="btn btn-danger">Cancel</button></a>

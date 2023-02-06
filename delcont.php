@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $con = mysqli_connect('localhost', 'root');
 mysqli_select_db($con, 'codespindle');
 
@@ -14,9 +15,18 @@ function del()
 {
     $con = mysqli_connect('localhost', 'root');
     mysqli_select_db($con, 'codespindle');
+
+    $id = $_GET['id'];
+
+    $res = mysqli_query($con, "select * from tcat where tid = $id");
+    while ($row = mysqli_fetch_array($res)) {
+        $ename = $row["tname"];
+    }
     // query must always be in double quotes!
     $id = $_GET['id'];
     mysqli_query($con, "delete from tcat where tid = $id");
+    // local var should always be in quotes!
+    mysqli_query($con, "delete from tqn where category = '$ename' ");
     ?>
     <script>
         window.location.href = "set_test.php"
@@ -107,7 +117,7 @@ if (array_key_exists('delbtn', $_POST)) {
         </nav>
     </div>
 
-    <div class="container" id="newtdb" style="position:relative; border: 2px solid;border-radius: 10px;" >
+    <div class="container" id="newtdb" style="position:relative; border: 2px solid;border-radius: 10px;">
         <form id="delform" method="post"></form>
         <h5>Delete Test->
             <?php echo $ename ?> ?

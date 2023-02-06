@@ -46,3 +46,19 @@ del test appear as dbox
 7)take test/quiz from end user side          ---    
 8)validate quiz/test                         ---   
 9)display results to end user and admin      ---   
+
+
+Version 1.o:
+test module--
+user will be able to attempt the test only once when it is fired.
+user will get to see the results after a period of time(10 mins) due to chance of malpractice.
+
+Version 2.o:
+quiz module--
+user will be able to take a quiz after each lecture/topic....
+user can attempt quiz multiple no. of times
+
+Version 3.o:
+Dynamic Lectures--
+admin can add new subjects and topics dynamically 
+

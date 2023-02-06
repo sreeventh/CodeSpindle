@@ -104,11 +104,27 @@
         move_uploaded_file($_FILES["iop4"]["tmp_name"] , $dest4);
 
 
-        $fil5 = $_FILES["ians"]["name"];
-        $dest5 = "./qna_images".$tim.$fil5;
-        $dest_db5 = "qna_images/".$tim.$fil5;
-        move_uploaded_file($_FILES["ians"]["tmp_name"] , $dest5);
-
+        $answer = "";
+        if (isset($_POST["iopta"])) {
+            $answer = $_POST["iopta"];
+            switch ($answer) {
+                case "iop1":
+                    $dest_db5 = $dest_db1;
+                    break;
+                case "iop2":
+                    $dest_db5 = $dest_db2;
+                    break;
+                case "iop3":
+                    $dest_db5 = $dest_db3;
+                    break;
+                case "iop4":
+                    $dest_db5 = $dest_db4;
+                    break;
+                default:
+                    $dest_db5 = "";
+                    break;
+            }
+        }
 
         $fil6 = $_FILES["iqname"]["name"];
         $dest6 = "./qna_images/".$tim.$fil6;
@@ -117,7 +133,7 @@
 
 
 
-        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$dest_db5' , '$ename' )") or die(mysqli_error($con)) ;
+        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$answer' , '$ename' )") or die(mysqli_error($con)) ;
 
         ?>
         <script>
@@ -342,29 +358,25 @@
                     <input form="imf" type="file" name="iqname" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="op1">Option 1 Image</label>
-                    <input form="imf" type="radio" name="opta" id="opt1" value="op1">
+                    <label for="iop1">Option 1 Image</label>
+                    <input form="imf" type="radio" name="iopta" id="opt1" value="iop1">
                     <input form="imf" type="file" name="iop1" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="op2">Option 2 Image</label>
-                    <input form="imf" type="radio" name="opta" id="opt2" value="op2">
+                    <label for="iop2">Option 2 Image</label>
+                    <input form="imf" type="radio" name="iopta" id="opt2" value="iop2">
                     <input form="imf" type="file" name="iop2" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="op3">Option 3 Image</label>
-                    <input form="imf" type="radio" name="opta" id="opt3" value="op3">
+                    <label for="iop3">Option 3 Image</label>
+                    <input form="imf" type="radio" name="iopta" id="opt3" value="iop3">
                     <input form="imf" type="file" name="iop3" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="op4">Option 4 Image</label>
-                    <input form="imf" type="radio" name="opta" id="opt4" value="op4">
+                    <label for="iop4">Option 4 Image</label>
+                    <input form="imf" type="radio" name="iopta" id="opt4" value="iop4">
                     <input form="imf" type="file" name="iop4" class="form-control">
                 </div>
-                <!-- <div class="form-group">
-                    <label for="ans">Answer Image</label>
-                    <input form="imf" type="file" name="ians" class="form-control">
-                </div> -->
                 <br>
                 <input form="imf" type="submit" name="aqni" value="Add Qun" class="btn btn-dark">
                 <button onclick="clos('addimg')" class="btn btn-danger">Cancel</button>
