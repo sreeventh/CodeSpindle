@@ -65,6 +65,12 @@
     border-radius: 5px;
     margin-top: 20px;
   }
+  /* deploy */
+  #ud,
+  #dtdb{
+    bottom: 400px;
+    margin-left: 200px;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -94,6 +100,11 @@
     padding: 10px;
     border-radius: 5px;
   }
+  /* deploy */
+  #ud,
+  #dtdb{
+    bottom: 400px; margin-left:700px;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -122,6 +133,12 @@
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
+  }
+
+  /* deploy */
+  #ud,
+  #dtdb{
+    bottom: 400px; margin-left:700px;
   }
 }
 
