@@ -120,7 +120,7 @@ if (array_key_exists('delbtn', $_POST)) {
             <?php
                 if(strpos($qname,'qna_images') !== false){
                     ?>
-                    <img src="<?php echo $qname ?>" alt="Img Not Avl" height="50" width="50">
+                    <img src="<?php echo $qname ?>" alt="Img Not Avl" height="200" width="200">
                     <?php
                 }
                 else{

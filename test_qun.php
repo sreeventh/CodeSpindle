@@ -314,7 +314,7 @@
     </div>
 
         <!----------------------------------------------- dialog box for add qun form ---------------------------------------------------->
-        <div class="container" id="addqf" style="position:relative; z-index: 2;bottom:200px">
+        <div class="container" id="addqf" style="position:sticky; z-index: 2;bottom:75px">
             <form id="qf" action="" method="post"></form>
                 <div class="form-group">
                     <label for="qname">Question<button onclick="showiform()" class="btn btn-primary btn-dark" style="margin:10px;">Image</button></label>
@@ -351,7 +351,7 @@
 
         <!-- ---------------------------------------------------dbox for img optns----------------------------------------------------- -->
 
-        <div class="container" id="addimg" style="position:relative; z-index: 3;bottom: 250px;">
+        <div class="container" id="addimg" style="position:sticky; z-index: 3;bottom: 250px;">
             <form id="imf" action="" enctype="multipart/form-data" method="post"></form>
                 <div class="form-group">
                     <label for="qname">Question Image</label>

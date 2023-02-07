@@ -207,7 +207,7 @@ if (isset($_POST["create"])) {
 
     <!------------------------------------------------ dialog box for new test --------------------------------------------------------------------->
 
-    <div class="container-fluid" id="newtdb" style="position:absolute;left: 100px;bottom:300px; z-index:2;">
+    <div class="container-fluid" id="newtdb" style="position:sticky;left: 100px;bottom:300px; z-index:2;">
         <form id="newtf" name="newtf" action="set_test.php" method="POST" onsubmit="return nullw()"></form>
         <div class="form-group">
             <label for="tname">Test Name</label>

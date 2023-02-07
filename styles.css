@@ -51,7 +51,6 @@
   /* new test dialogbox */
   #newtdb {
     width: 50%;
-    height: 30%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
@@ -61,7 +60,6 @@
   #addqf,
   #addimg {
     width: 50%;
-    height: 60%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
@@ -84,7 +82,6 @@
   /* new test dialog box */
   #newtdb {
     width: 25%;
-    height: 30%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
@@ -93,7 +90,6 @@
   #addqf,
   #addimg {
     width: 30%;
-    height: 60%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
@@ -115,7 +111,6 @@
   /* new test dialog box */
   #newtdb {
     width: 25%;
-    height: 30%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
@@ -124,7 +119,6 @@
   #addqf,
   #addimg {
     width: 25%;
-    height: 60%;
     outline-style: groove;
     padding: 10px;
     border-radius: 5px;
