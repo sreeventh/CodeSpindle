@@ -117,22 +117,22 @@ if(isset($_POST["uqn"])){
                 </div>
                 <div class="form-group">
                     <label for="op1" style="font-size: large; font-weight: bold;">Option 1</label>
-                    <input type="radio" name="opta" id="op1" value="op1">
+                    <input type="radio" form="uqf" name="opta" id="op1" value="op1">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op1" class="form-control"><?php echo $opt1 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op2" style="font-size: large; font-weight: bold;">Option 2</label>
-                    <input type="radio" name="opta" id="op2" value="op2">
+                    <input type="radio" form="uqf" name="opta" id="op2" value="op2">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op2" class="form-control"><?php echo $opt2 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op3" style="font-size: large; font-weight: bold;">Option 3</label>
-                    <input type="radio" name="opta" id="op3" value="op3">
+                    <input type="radio" form="uqf" name="opta" id="op3" value="op3">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op3" class="form-control"><?php echo $opt3 ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="op4" style="font-size: large; font-weight: bold;">Option 4</label>
-                    <input type="radio" name="opta" id="op4" value="op4">
+                    <input type="radio" form="uqf" name="opta" id="op4" value="op4">
                     <textarea cols="10" rows="2" form="uqf" type="text" name="op4" class="form-control"><?php echo $opt4 ?></textarea>
                 </div>
                 <br>

@@ -15,7 +15,12 @@ $res = mysqli_query($con, "select * from tqn where category = '$id' ");
 $count = 0;
 while($rr=mysqli_fetch_array($res)){
     echo $rr['qun'];
-    echo $_POST["ans" . $count];
+    if (isset($_POST["ans" . $count])){
+        echo $_POST["ans" . $count];
+    } 
+    else{
+        echo "no answers!";
+    }
     $count++;
 }
 

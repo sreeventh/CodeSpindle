@@ -133,7 +133,7 @@
 
 
 
-        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$answer' , '$ename' )") or die(mysqli_error($con)) ;
+        mysqli_query($con , "insert into tqn(question_no , qun , opt1, opt2 , opt3 , opt4 , answer , category) values ('$loop' , '$dest_db6' , '$dest_db1' , '$dest_db2' , '$dest_db3' , '$dest_db4' , '$dest_db5' , '$ename' )") or die(mysqli_error($con)) ;
 
         ?>
         <script>
