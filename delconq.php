@@ -117,7 +117,16 @@ if (array_key_exists('delbtn', $_POST)) {
     <div class="container" id="newtdb" style="position:fixed; top: 10%; bottom: 0; left: 0; right: 0;">
         <form id="delform" method="post"></form>
         <h5>Delete Question->
-            <?php echo $qname ?>?
+            <?php
+                if(strpos($qname,'qna_images') !== false){
+                    ?>
+                    <img src="<?php echo $qname ?>" alt="Img Not Avl" height="50" width="50">
+                    <?php
+                }
+                else{
+                    echo $qname;
+                } 
+            ?>?
         </h5>
         <input form="delform" type="submit" class="btn btn-dark" name="delbtn" value="Yes">
         <button onclick="location.href='test_qun.php?id=<?php echo $id; ?>'" class="btn btn-danger">No</button>

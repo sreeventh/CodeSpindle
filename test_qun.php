@@ -240,7 +240,7 @@
                                     <td><?php
                                     if(strpos($ro["qun"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["qun"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["qun"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
@@ -250,7 +250,7 @@
                                     <td><?php
                                     if(strpos($ro["opt1"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["opt1"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["opt1"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
@@ -260,7 +260,7 @@
                                     <td><?php
                                     if(strpos($ro["opt2"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["opt2"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["opt2"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
@@ -270,7 +270,7 @@
                                     <td><?php
                                     if(strpos($ro["opt3"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["opt3"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["opt3"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
@@ -280,7 +280,7 @@
                                     <td><?php
                                     if(strpos($ro["opt4"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["opt4"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["opt4"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
@@ -290,7 +290,7 @@
                                     <td><?php
                                     if(strpos($ro["answer"],'qna_images') !== false){
                                         ?>
-                                        <img src="<?php echo $ro["answer"] ?>" alt="Img Not Avl" height="50" width="50">
+                                        <img src="<?php echo $ro["answer"] ?>" alt="Img Not Avl" height="200" width="200">
                                         <?php
                                     }
                                     else{
