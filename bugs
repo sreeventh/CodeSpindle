@@ -5,6 +5,7 @@
 4) duplicate test names - FIXED
 6) null start_test qun redirection - FIXED
 7) countdown timer not updating || not restarting once reaching 0 || (may require total re-design)
+8) quiz local storage login error
 
 Personal Ref
 
@@ -13,6 +14,9 @@ Personal Ref
 
 #doubts -> 
 passing ids
+post(post)
+.string concat
+
 
 take as exercise->
 del test appear as dbox
@@ -54,11 +58,14 @@ user will be able to attempt the test only once when it is fired.
 user will get to see the results after a period of time(10 mins) due to chance of malpractice.
 
 Version 2.o:
+Dynamic Lectures--
+admin can add new subjects and topics dynamically 
+chatbot integration
+
+Version 3.o:
 quiz module--
 user will be able to take a quiz after each lecture/topic....
 user can attempt quiz multiple no. of times
 
-Version 3.o:
-Dynamic Lectures--
-admin can add new subjects and topics dynamically 
+
 

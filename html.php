@@ -20,9 +20,6 @@ if (isset($_POST['create'])) {
     </script>
     <?php
 }
-
-
-
 ?>
 
 
@@ -47,7 +44,7 @@ if (isset($_POST['create'])) {
 
 <body>
     <!------------------------------------------- nav bar ------------------------------------------------------------>
-    <div class="navi bg-success">
+    <div id="navii" class="navi bg-success">
         <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <a class="navbar-brand" href="home.php">CodeSpindle</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
@@ -57,6 +54,9 @@ if (isset($_POST['create'])) {
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="spinny.php">Spinny</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="java.php">Java</a>
                     </li>
@@ -118,11 +118,17 @@ if (isset($_POST['create'])) {
 
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                             id="menu">
-                            <li class="nav-item">
-                                <a onclick="opa('newtdb')" class="nav-link align-middle px-0" style="cursor: pointer;">
-                                    <span class="items ms-1 d-none d-sm-inline">➕</span>
-                                </a>
-                            </li>
+                            <?php
+                            if ($_SESSION['type'] == "admin") {
+                                ?>
+                                <li class="nav-item">
+                                    <a onclick="opa('newtdb')" class="nav-link align-middle px-0" style="cursor: pointer;">
+                                        <span class="items ms-1 d-none d-sm-inline">➕</span>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
 
                             <li>
                                 <?php
@@ -136,6 +142,17 @@ if (isset($_POST['create'])) {
                                             <?php echo $row['topic'] ?>
                                         </span>
                                     </a>
+                                    <?php
+                                    if ($_SESSION['type'] == "admin") {
+                                        ?>
+                                        <a href="dht.php?id=<?php echo $row['htid'] ?>"
+                                            style="display: inline-block; padding-left: 50px; cursor: pointer; text-decoration: none;">
+                                            <h5>🗑</h5>
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
+
                                     <?php
                                 }
                                 ?>
@@ -216,9 +233,19 @@ if (isset($_POST['create'])) {
         document.getElementById("newtdb").style.display = "none";
         function opa(a) {
             document.getElementById(a).style.display = "block";
+            document.getElementById("lgcon").style.opacity = "25%"
+            document.getElementById("lgcon").style.zIndex = "-1";
+
+            document.getElementById("navii").style.opacity = "25%"
+            document.getElementById("navii").style.zIndex = "-1";
         }
         function close1(a) {
             document.getElementById(a).style.display = "none";
+            document.getElementById("lgcon").style.opacity = "initial"
+            document.getElementById("lgcon").style.zIndex = "initial";
+
+            document.getElementById("navii").style.opacity = "initial"
+            document.getElementById("navii").style.zIndex = "initial";
         }
     </script>
 
