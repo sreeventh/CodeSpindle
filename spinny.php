@@ -9,6 +9,10 @@ if (!isset($_SESSION["username"])) {
 $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'codespindle');
+
+
+
+
 ?>
 
 
@@ -93,11 +97,27 @@ mysqli_select_db($con, 'codespindle');
             </div>
         </nav>
     </div>
-    <h1>
-        Hi I am Spinny!
-        You're personal assistant.......yet
-        I'm under construction and will be with you soon!
-    </h1>
+    <!-- ********************************************************************************************************** -->
+
+
+
+    <h2>Enter Java code:</h2>
+    <form action="spinny.php" method="post">
+        <textarea name="code" rows="10" cols="50"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $code = $_POST["code"];
+        $output = shell_exec("java -jar javai.jar $code");
+        echo "<h2>Output:</h2>";
+        echo "<pre>$output</pre>";
+    }
+    ?>
+
+
+
 </body>
 
 
