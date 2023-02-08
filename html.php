@@ -5,6 +5,24 @@ session_start();
 if (!isset($_SESSION["username"])) {
     header('location: index.php');
 }
+
+$con = mysqli_connect('localhost', 'root');
+
+mysqli_select_db($con, 'codespindle');
+
+
+
+if (isset($_POST['create'])) {
+    mysqli_query($con, "insert into htop values(NULL , '$_POST[topic]')") or die('Unable to execute query. ' . mysqli_error($con));
+    ?>
+    <script>
+        alert("Topic added successfully!!")
+    </script>
+    <?php
+}
+
+
+
 ?>
 
 
@@ -16,7 +34,7 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>java_page</title>
+    <title>html_page</title>
     <!-- css style sheet -->
     <link rel="stylesheet" href="styles.css">
     <!-- favicon -->
@@ -93,7 +111,7 @@ if (!isset($_SESSION["username"])) {
                     <div
                         class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
 
-                        <a href="html.php"
+                        <a href=""
                             class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline">Html Home</span>
                         </a>
@@ -101,22 +119,26 @@ if (!isset($_SESSION["username"])) {
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                             id="menu">
                             <li class="nav-item">
-                                <a href="" class="nav-link align-middle px-0">
-                                    <span class="items ms-1 d-none d-sm-inline">Intro</span>
+                                <a onclick="opa('newtdb')" class="nav-link align-middle px-0" style="cursor: pointer;">
+                                    <span class="items ms-1 d-none d-sm-inline">➕</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="" class="nav-link px-0 align-middle">
-                                    <span class="items ms-1 d-none d-sm-inline">Tables</span>
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="" class="nav-link px-0 align-middle">
-                                    <span class="items ms-1 d-none d-sm-inline">Elements</span>
-                                </a>
+                                <?php
+                                $count = 0;
+                                $test = mysqli_query($con, "select * from htop");
+                                while ($row = mysqli_fetch_array($test)) {
+                                    $count += 1;
+                                    ?>
+                                    <a href="" class="nav-link px-0 align-middle">
+                                        <span class="items ms-1 d-none d-sm-inline">
+                                            <?php echo $row['topic'] ?>
+                                        </span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
                             </li>
                         </ul>
                         <hr>
@@ -177,6 +199,28 @@ if (!isset($_SESSION["username"])) {
             <button type="button" class="btn btn-primary btn-success">Next</button>
         </div>
     </section>
+
+
+    <div class="container-fluid" id="newtdb" style="position:sticky;left: 100px;bottom:300px; z-index:2;">
+        <form id="add_topic" name="add_topic" action="" method="POST"></form>
+        <div class="form-group">
+            <label for="topic">Add Topic</label>
+            <input form="add_topic" type="text" name="topic" class="form-control">
+        </div>
+        <br>
+        <input form="add_topic" type="submit" name="create" value="Create" class="btn btn-dark">
+        <button onclick="close1('newtdb')" class="btn btn-danger">Cancel</button>
+    </div>
+
+    <script>
+        document.getElementById("newtdb").style.display = "none";
+        function opa(a) {
+            document.getElementById(a).style.display = "block";
+        }
+        function close1(a) {
+            document.getElementById(a).style.display = "none";
+        }
+    </script>
 
 
 
