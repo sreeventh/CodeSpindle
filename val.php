@@ -24,6 +24,7 @@ $row = mysqli_fetch_assoc($result);
 if($row==true){
     $_SESSION['username'] = $row['username'];
     $_SESSION['type'] = $row['type'];
+    $_SESSION['id'] = $row['id'];
     header('location:home.php');
 }
 else{

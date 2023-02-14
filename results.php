@@ -6,23 +6,33 @@ if (!isset($_SESSION["username"])) {
     header('location: index.php');
 }
 
+echo $_SESSION['username'];
+
 $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'codespindle');
-
+// here id is tname
 $id = $_GET['id'];
+$res1 = mysqli_query($con, "select * from tcat where tname = '$id' ");
+while($rrr=mysqli_fetch_array($res1)){
+    $tt = $rrr['tid'];
+}
 $res = mysqli_query($con, "select * from tqn where category = '$id' ");
 $count = 0;
 while($rr=mysqli_fetch_array($res)){
-    echo $rr['qun'];
+    $qid = $rr['qid'];
     if (isset($_POST["ans" . $count])){
-        echo $_POST["ans" . $count];
+        $ans = $_POST["ans" . $count];
+        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[username]' , '$ans' , 1)");
     } 
     else{
-        echo "no answers!";
+        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[username]', NULL , 1)");
     }
     $count++;
 }
+
+
+
 
 ?>
 
@@ -40,6 +50,11 @@ while($rr=mysqli_fetch_array($res)){
 </head>
 
 <body>
+
+
+
+
+
     <script>
         localStorage.removeItem("timer-" +<?php echo $id; ?>)
     </script>

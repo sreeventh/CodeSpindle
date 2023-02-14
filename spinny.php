@@ -102,18 +102,19 @@ mysqli_select_db($con, 'codespindle');
 
 
     <h2>Enter Java code:</h2>
-    <form action="spinny.php" method="post">
+    <form method="post">
         <textarea name="code" rows="10" cols="50"></textarea><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Debug" name="Debug">
     </form>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $code = $_POST["code"];
-        $output = shell_exec("java -jar javai.jar $code");
-        echo "<h2>Output:</h2>";
-        echo "<pre>$output</pre>";
-    }
+        if(isset($_POST['Debug'])){
+            $input = $_POST['code'];
+            $command = "java -jar path/to/javad.jar $input";
+            $output = shell_exec($command);
+            echo $output;
+        }
+
     ?>
 
 

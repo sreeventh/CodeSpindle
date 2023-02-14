@@ -203,7 +203,7 @@
     <div id="addlist" style="position: relative;">
         <!---------------------------------------------- add qun done ------------------------------------------------->
         <div class="container-fluid" style="padding:10px">
-            <button onclick="showform()" class="btn btn-dark btn-primary btn-lg">Add Question</button>
+            <button onclick="showform()" class="btn btn-dark btn-primary btn-lg btn-outline-light">Add Question</button>
             <a href="set_test.php"><button class="btn btn-outline-dark btn-light btn-primary btn-lg">Done</button></a>
         </div>
         <!--------------------------------------------- list of qun table ------------------------------------------>
