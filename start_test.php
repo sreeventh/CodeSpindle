@@ -55,7 +55,7 @@ while ($row = mysqli_fetch_assoc($res)) {
     <!-------------------------------------------------------- navbar ------------------------------------------------------->
     <div class="navi bg-success">
         <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-            <a class="navbar-brand" href="home.php">CodeSpindle</a>
+            <a class="navbar-brand" style="pointer-events: none" href="home.php">CodeSpindle</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,28 +64,28 @@ while ($row = mysqli_fetch_assoc($res)) {
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="java.php">Java</a>
+                        <a class="nav-link" style="pointer-events: none" href="java.php">Java</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="html.php">Html</a>
+                        <a class="nav-link" style="pointer-events: none" href="html.php">Html</a>
                     </li>
                     <?php
                     if ($_SESSION['type'] == "admin") {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="set_test.php">Set Test</a>
+                            <a class="nav-link" style="pointer-events: none" href="set_test.php">Set Test</a>
                         </li>
                         <?php
                     }
                     ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="take_test.php">Take Test</a>
+                        <a class="nav-link" style="pointer-events: none" href="take_test.php">Take Test</a>
                     </li>
 
                     <li>
 
-                        <a href="" class="text-white text-decoration-none" data-bs-toggle="dropdown"
+                        <a href="" style="pointer-events: none" class="text-white text-decoration-none" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <span class="nav-link">Profile</span>
                         </a>
