@@ -122,6 +122,7 @@ mysqli_select_db($con, 'codespindle');
                             while ($row = mysqli_fetch_array($res)) {
                                 $tid = $row['tid'];
                                 $ct += 1;
+                                $att=0;
                                 ?>
                                 <tr>
                                     <th>
@@ -138,9 +139,10 @@ mysqli_select_db($con, 'codespindle');
                                     while ($rr = mysqli_fetch_array($rrr)) {
                                         $att = $rr['tstat'];
                                     }
-                                    if ($att == 1) {
+                                    if ($att==1) {
                                         ?>
-                                        <td><a onclick="att()" style="text-decoration: none; font-size: xx-large; cursor:pointer">🚩</a></td>
+                                        <td><a href="take_test.php?tname=<?php echo $row['tname'] ?>" onclick="att()"
+                                                style="text-decoration: none; font-size: xx-large; cursor:pointer">🚩</a></td>
                                         <?php
 
                                     } else {
@@ -150,6 +152,7 @@ mysqli_select_db($con, 'codespindle');
                                                 style="text-decoration: none; font-size: xx-large; cursor: pointer;">🚩</a></td>
                                         <?php
                                     }
+                                    echo $tid."=".$att;
                                     ?>
 
                                 </tr>

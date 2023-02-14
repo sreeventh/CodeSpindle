@@ -7,7 +7,7 @@ if (!isset($_SESSION["username"])) {
 }
 
 echo $_SESSION['username'];
-
+echo $_SESSION['id'];
 $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'codespindle');
@@ -23,10 +23,10 @@ while($rr=mysqli_fetch_array($res)){
     $qid = $rr['qid'];
     if (isset($_POST["ans" . $count])){
         $ans = $_POST["ans" . $count];
-        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[username]' , '$ans' , 1)");
+        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[id]' , '$ans' , 1)");
     } 
     else{
-        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[username]', NULL , 1)");
+        mysqli_query($con , "insert into stud_result values('$tt' , '$qid' , '$_SESSION[id]', NULL , 1)");
     }
     $count++;
 }
