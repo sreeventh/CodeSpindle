@@ -122,7 +122,7 @@ mysqli_select_db($con, 'codespindle');
                             while ($row = mysqli_fetch_array($res)) {
                                 $tid = $row['tid'];
                                 $ct += 1;
-                                $att=0;
+                                $att = 0;
                                 ?>
                                 <tr>
                                     <th>
@@ -139,10 +139,11 @@ mysqli_select_db($con, 'codespindle');
                                     while ($rr = mysqli_fetch_array($rrr)) {
                                         $att = $rr['tstat'];
                                     }
-                                    if ($att==1) {
+                                    if ($att == 1) {
                                         ?>
                                         <td><a href="take_test.php?tname=<?php echo $row['tname'] ?>" onclick="att()"
                                                 style="text-decoration: none; font-size: xx-large; cursor:pointer">🚩</a></td>
+                                        <td><a href="results.php?id=<?php echo $tid; ?>" style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
                                         <?php
 
                                     } else {
@@ -150,9 +151,10 @@ mysqli_select_db($con, 'codespindle');
 
                                         <td><a href="start_test.php?tname=<?php echo $row['tname'] ?>"
                                                 style="text-decoration: none; font-size: xx-large; cursor: pointer;">🚩</a></td>
+                                        <td><a onclick="resti()" style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
                                         <?php
                                     }
-                                    echo $tid."=".$att;
+
                                     ?>
 
                                 </tr>
@@ -170,6 +172,9 @@ mysqli_select_db($con, 'codespindle');
     </div>
 
     <script>
+        function resti() {
+            alert("Please attempt the quiz!")
+        }
         function att() {
             alert("Only one attempt allowed!")
         }
