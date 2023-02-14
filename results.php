@@ -51,7 +51,8 @@ while($rr=mysqli_fetch_array($res)){
 
 <body>
 
-
+    <br>
+    <a href="take_test.php" style="text-decoration: none; font-size: xxx-large; cursor: pointer;">↩</a>
 
 
 

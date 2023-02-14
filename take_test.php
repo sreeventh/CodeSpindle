@@ -143,7 +143,8 @@ mysqli_select_db($con, 'codespindle');
                                         ?>
                                         <td><a href="take_test.php?tname=<?php echo $row['tname'] ?>" onclick="att()"
                                                 style="text-decoration: none; font-size: xx-large; cursor:pointer">🚩</a></td>
-                                        <td><a href="results.php?id=<?php echo $tid; ?>" style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
+                                        <td><a href="results.php?id=<?php echo $tid; ?>"
+                                                style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
                                         <?php
 
                                     } else {
@@ -151,7 +152,8 @@ mysqli_select_db($con, 'codespindle');
 
                                         <td><a href="start_test.php?tname=<?php echo $row['tname'] ?>"
                                                 style="text-decoration: none; font-size: xx-large; cursor: pointer;">🚩</a></td>
-                                        <td><a onclick="resti()" style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
+                                        <td><a onclick="resti()"
+                                                style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
                                         <?php
                                     }
 
@@ -178,6 +180,11 @@ mysqli_select_db($con, 'codespindle');
         function att() {
             alert("Only one attempt allowed!")
         }
+    </script>
+    <script>
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };  
     </script>
 
 

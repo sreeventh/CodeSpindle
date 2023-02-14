@@ -6,6 +6,7 @@
 6) null start_test qun redirection - FIXED
 7) countdown timer not updating || not restarting once reaching 0 || (may require total re-design)
 8) quiz local storage login error
+9) after timer reaches zero results not updating
 
 Personal Ref
 
@@ -41,13 +42,13 @@ del test appear as dbox
 
 1)set test from admin side                   ---> DONE
 2)set qun from admin side                    ---> DONE  
-3)edit/delete test/qun from admin side       ---  DONE 
+3)edit/delete test/qun from admin side       ---> DONE 
 
 4)set in-course quiz from admin side         ---   
 5)set qun for inc quiz from admin side       ---   
 6)edit/delete quiz/qun from admin side       ---   
 
-7)take test/quiz from end user side          ---    
+7)take test/quiz from end user side          ---> DONE   
 8)validate quiz/test                         ---   
 9)display results to end user and admin      ---   
 
