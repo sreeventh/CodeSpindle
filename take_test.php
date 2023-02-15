@@ -143,7 +143,7 @@ mysqli_select_db($con, 'codespindle');
                                         ?>
                                         <td><a href="take_test.php?tname=<?php echo $row['tname'] ?>" onclick="att()"
                                                 style="text-decoration: none; font-size: xx-large; cursor:pointer">🚩</a></td>
-                                        <td><a href="results.php?id=<?php echo $tid; ?>"
+                                        <td><a href="showres.php?id=<?php echo $tid; ?>"
                                                 style="text-decoration: none; font-size: xx-large; cursor:pointer">📜</a></td>
                                         <?php
 
