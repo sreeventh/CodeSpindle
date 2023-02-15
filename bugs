@@ -10,6 +10,9 @@
 10) att gets updated as 1 for all users - FIXED❌
 11)) after refresh in result page test answers get re-submitted🚀🚀🚀🚀
 12)) should not be able to edit the url and redirect to other pages🚀🚀🚀🚀
+13)) image in start_test🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+
+
 
 Personal Ref
 
@@ -54,16 +57,16 @@ admin from client-side
 6)edit/delete quiz/qun from admin side       ---   
 
 7)take test/quiz from end user side          ---> DONE   
-8)validate quiz/test                         ---> Done 
-9)display results to end user and admin      ---    🚀🚀🚀🚀
+8)validate quiz/test                         ---> DONE 
+9)display results to end user and admin      ---> DONE
 
 
-##Version 1.o:🚀🚀🚀🚀
+##Version 1.o:
 test module--
 user will be able to attempt the test only once when it is fired.
 user will get to see the results after a period of time(10 mins) due to chance of malpractice.
 
-###Version 2.o:
+###Version 2.o:🚀🚀🚀🚀
 Dynamic Lectures--
 admin can add new subjects and topics dynamically 
 chatbot integration
