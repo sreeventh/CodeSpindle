@@ -132,6 +132,9 @@ if (isset($_POST["create"])) {
             <button onclick="opa('newtdb')" class="btn btn-primary btn-lg btn-dark" style="margin-top: 15px;">
                 Create New Test
             </button>
+            <button class="btn btn-primary btn-lg btn-dark" style="margin-top: 15px;"><a href="dres.php" style="text-decoration:none;color:white;">
+                    View Results
+                </a></button>
         </div>
         <div id="ttable" class="container-fluid">
             <div class="card">

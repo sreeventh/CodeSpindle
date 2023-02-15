@@ -9,6 +9,7 @@
 9) after timer reaches zero results not updating🚀🚀🚀🚀
 10) att gets updated as 1 for all users - FIXED❌
 11)) after refresh in result page test answers get re-submitted🚀🚀🚀🚀
+12)) should not be able to edit the url and redirect to other pages🚀🚀🚀🚀
 
 Personal Ref
 
@@ -21,7 +22,7 @@ post(post)🚀🚀🚀🚀
 .string concat🚀🚀🚀🚀
 
 
-take as exercise->
+#take as exercise->
 del test appear as dbox
 admin from client-side
 
@@ -53,7 +54,7 @@ admin from client-side
 6)edit/delete quiz/qun from admin side       ---   
 
 7)take test/quiz from end user side          ---> DONE   
-8)validate quiz/test                         ---  🚀🚀🚀🚀 
+8)validate quiz/test                         ---> Done 
 9)display results to end user and admin      ---    🚀🚀🚀🚀
 
 
