@@ -135,7 +135,7 @@ mysqli_select_db($con, 'codespindle');
                                         <?php echo $row['tdur'] ?>
                                     </td>
                                     <?php
-                                    $rrr = mysqli_query($con, "select * from stud_result where tid = $tid");
+                                    $rrr = mysqli_query($con, "select * from stud_result where tid = $tid && sid=$_SESSION[id]");
                                     while ($rr = mysqli_fetch_array($rrr)) {
                                         $att = $rr['tstat'];
                                     }
