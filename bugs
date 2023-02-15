@@ -1,27 +1,28 @@
 #BUGS->
-1) null test is allowed - FIXED
-2) give scrolling function to card  - FIXED
-3) delconq -> test_qun.php redirection undefined arraykay error (get method) - FIXED
-4) duplicate test names - FIXED
-6) null start_test qun redirection - FIXED
-7) countdown timer not updating || not restarting once reaching 0 || (may require total re-design)
-8) quiz local storage login error
-9) after timer reaches zero results not updating
-10) att gets updated as 1 for all users
+1) null test is allowed - FIXED❌
+2) give scrolling function to card  - FIXED❌
+3) delconq -> test_qun.php redirection undefined arraykay error (get method) - FIXED❌
+4) duplicate test names - FIXED❌
+6) null start_test qun redirection - FIXED❌
+7) countdown timer not updating || not restarting once reaching 0 || (may require total re-design)❌
+8) quiz local storage login error❌
+9) after timer reaches zero results not updating🚀🚀🚀🚀
+10) att gets updated as 1 for all users - FIXED❌
 
 Personal Ref
 
 
 
 
-#doubts -> 
-passing ids
-post(post)
-.string concat
+#doubts in php -> 
+passing ids🚀🚀🚀🚀
+post(post)🚀🚀🚀🚀
+.string concat🚀🚀🚀🚀
 
 
 take as exercise->
 del test appear as dbox
+admin from client-side
 
 
 
@@ -29,13 +30,14 @@ del test appear as dbox
 
 
 #need to do:
-1) delcon dialog box styling
-3) style dropdown
+1) delcon dialog box styling❌
+3) style dropdown🚀🚀🚀🚀
 4) fixed top navbar class 
-5) qun image flexible Option
+5) qun image flexible Option❌
 6) re-design home page
 7) carousel for home page
-8) responsiveness for quiz modules
+8) responsiveness for quiz modules🚀🚀🚀🚀
+9)) set admin from website🚀🚀🚀🚀
 
 
 
@@ -50,11 +52,11 @@ del test appear as dbox
 6)edit/delete quiz/qun from admin side       ---   
 
 7)take test/quiz from end user side          ---> DONE   
-8)validate quiz/test                         ---   
-9)display results to end user and admin      ---   
+8)validate quiz/test                         ---  🚀🚀🚀🚀 
+9)display results to end user and admin      ---    🚀🚀🚀🚀
 
 
-Version 1.o:
+Version 1.o:🚀🚀🚀🚀
 test module--
 user will be able to attempt the test only once when it is fired.
 user will get to see the results after a period of time(10 mins) due to chance of malpractice.
