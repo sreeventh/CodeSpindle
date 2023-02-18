@@ -142,14 +142,33 @@ while ($row = mysqli_fetch_assoc($res)) {
                                     <table style="margin: 0px auto;">
                                         <tr>
                                             <td>
-                                                <textarea name="qun" id="qn" cols="100" rows="5" readonly
-                                                    style="text-align: left; resize: none;"><?php echo $qun[$i] ?></textarea>
+                                            <label for="qun">
+                                                <?php
+                                                    if(strpos($qun[$i],'qna_images') !== false){
+                                                ?>
+                                                    <img src="<?php echo $qun[$i] ?>" alt="Img Not Avl" height="200" width="200">
+                                                <?php
+                                                }
+                                                else{
+                                                    echo $qun[$i];
+                                                }
+                                                ?>
+                                                </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <label for="opt1">
-                                                    <?php echo $opt1[$i] ?>
+                                                <?php
+                                                    if(strpos($opt1[$i],'qna_images') !== false){
+                                                ?>
+                                                    <img src="<?php echo $opt1[$i] ?>" alt="Img Not Avl" height="200" width="200">
+                                                <?php
+                                                }
+                                                else{
+                                                    echo $opt1[$i];
+                                                }
+                                                ?>
                                                 </label>
                                                 <input value="<?php echo $opt1[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
@@ -157,7 +176,16 @@ while ($row = mysqli_fetch_assoc($res)) {
                                         <tr>
                                             <td>
                                                 <label for="opt2">
-                                                    <?php echo $opt2[$i] ?>
+                                                <?php
+                                                    if(strpos($opt2[$i],'qna_images') !== false){
+                                                ?>
+                                                    <img src="<?php echo $opt2[$i] ?>" alt="Img Not Avl" height="200" width="200">
+                                                <?php
+                                                }
+                                                else{
+                                                    echo $opt2[$i];
+                                                }
+                                                ?>
                                                 </label>
                                                 <input value="<?php echo $opt2[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
@@ -165,7 +193,16 @@ while ($row = mysqli_fetch_assoc($res)) {
                                         <tr>
                                             <td>
                                                 <label for="opt3">
-                                                    <?php echo $opt3[$i] ?>
+                                                <?php
+                                                    if(strpos($opt3[$i],'qna_images') !== false){
+                                                ?>
+                                                    <img src="<?php echo $opt3[$i] ?>" alt="Img Not Avl" height="200" width="200">
+                                                <?php
+                                                }
+                                                else{
+                                                    echo $opt3[$i];
+                                                }
+                                                ?>
                                                 </label>
                                                 <input value="<?php echo $opt3[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
@@ -173,7 +210,16 @@ while ($row = mysqli_fetch_assoc($res)) {
                                         <tr>
                                             <td>
                                                 <label for="opt4">
-                                                    <?php echo $opt4[$i] ?>
+                                                <?php
+                                                    if(strpos($opt4[$i],'qna_images') !== false){
+                                                ?>
+                                                    <img src="<?php echo $opt4[$i] ?>" alt="Img Not Avl" height="200" width="200">
+                                                <?php
+                                                }
+                                                else{
+                                                    echo $opt4[$i];
+                                                }
+                                                ?>
                                                 </label>
                                                 <input value="<?php echo $opt4[$i] ?>" type="radio" name=<?php echo "ans".$i; ?>>
                                             </td>
