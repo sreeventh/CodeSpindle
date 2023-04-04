@@ -246,58 +246,119 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the prompt from the form data
     $prompt = $_POST['prompt'];
 
-    // Initialize a new cURL session
-    $ch = curl_init();
-
-    // Set the URL to send the request to
-    curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
-
-    // Return the response instead of outputting it
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-    // Use the POST method to send the request
-    curl_setopt($ch, CURLOPT_POST, 1);
-
-    // Set the request body as a JSON-encoded string
-    $request_data = array(
-        'model' => 'text-davinci-002',
-        'prompt' => $prompt,
-        'temperature' => 0,
-        'max_tokens' => 2000,
-        'top_p' => 1,
-        'frequency_penalty' => 0,
-        'presence_penalty' => 0
+    // Define the programming and coding keywords
+    $keywords = array(
+        'programming',
+        'coding',
+        'code',
+        'algorithm',
+        'debug',
+        'syntax',
+        'function',
+        'variable',
+        'class',
+        '{',
+        '}',
+        '[',
+        ']',
+        '+',
+        '(',
+        ')',
+        '%',
+        '*',
+        '&',
+        '/',
+        '<',
+        '>',
+        '-',
+        'java',
+        'c++',
+        'python',
+        'html',
+        'css',
+        'javascript',
+        'jquery',
+        'monogo db',
+        'sql',
+        'mysql',
+        'database',
+        'flutter',
+        'dart',
+        'error'
     );
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request_data));
 
-    // Set the request headers
-    $headers = array(
-        'Content-Type: application/json',
-        'Authorization: Bearer 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' // Replace YOUR_API_KEY with your actual API key
-    );
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    // Send the request and store the response in a variable
-    $response = curl_exec($ch);
-
-    // Check for errors
-    if (curl_errno($ch)) {
-        echo 'cURL error: ' . curl_error($ch) . '<br>';
-        echo 'HTTP status code: ' . curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    // Check if the prompt contains any of the keywords
+    $contains_keyword = false;
+    foreach ($keywords as $keyword) {
+        if (stripos($prompt, $keyword) !== false) {
+            $contains_keyword = true;
+            break;
+        }
     }
 
-    // Close the cURL session
-    curl_close($ch);
+    if ($contains_keyword) {
+        // Initialize a new cURL session
+        $ch = curl_init();
 
-    // Output the API response
-    $responseObj = json_decode($response);
-    $completedCode = $responseObj->choices[0]->text;
-    ?>
-    <div id="debugger-output">
-        <h4 id="res">
-            <?php echo $completedCode; ?>
-        </h4>
-    </div>
-    <?php
+        // Set the URL to send the request to
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
+
+        // Return the response instead of outputting it
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Use the POST method to send the request
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        // Set the request body as a JSON-encoded string
+        $request_data = array(
+            'model' => 'text-davinci-003',
+            'prompt' => $prompt,
+            'temperature' => 0,
+            'max_tokens' => 2000,
+            'top_p' => 1,
+            'frequency_penalty' => 0,
+            'presence_penalty' => 0
+        );
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request_data));
+
+        // Set the request headers
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Bearer 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' // Replace YOUR_API_KEY with your actual API key
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        // Send the request and store the response in a variable
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if (curl_errno($ch)) {
+            echo 'cURL error: ' . curl_error($ch) . '<br>';
+            echo 'HTTP status code: ' . curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        }
+
+        // Close the cURL session
+        curl_close($ch);
+
+        // Output the API response
+        $responseObj = json_decode($response);
+        $completedCode = $responseObj->choices[0]->text;
+        ?>
+        <div id="debugger-output">
+            <h4 id="res">
+                <?php echo $completedCode; ?>
+            </h4>
+        </div>
+        <?php
+    } else {
+
+        ?>
+        <div id="debugger-output">
+            <h4 id="res">
+                Sorry, I can only clarify and debug code.
+            </h4>
+        </div>
+        <?php
+    }
 }
 ?>
