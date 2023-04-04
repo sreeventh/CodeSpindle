@@ -35,6 +35,110 @@ mysqli_select_db($con, 'codespindle');
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spinny AI</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            width: 60%;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        } */
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* #reset-btn {
+            background-color: #ddd;
+            color: #333;
+        } */
+
+        #debugger-output {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 16px;
+        }
+
+        #prompt {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #prompt:focus {
+            border-color: #07b6bf;
+        }
+
+        #reset-btn,
+        #submit-btn {
+            background-color: #07b6bf;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #reset-btn:hover,
+        #submit-btn:hover {
+            background-color: #03594b;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,23 +203,32 @@ mysqli_select_db($con, 'codespindle');
     </div>
     <!-- ********************************************************************************************************** -->
 
-
-
-    <h2>Enter Java code:</h2>
-    <form method="post">
-        <textarea name="code" rows="10" cols="50"></textarea><br><br>
-        <input type="submit" value="Debug" name="Debug">
+    <h1>Code Debugger</h1>
+    <form id="debugger-form" method="post">
+        <label for="query">Enter your query:</label>
+        <textarea id="prompt" name="prompt" rows="5" cols="50" placeholder="Type your query here..."></textarea>
+        <br>
+        <button type="button" id="reset-btn" onclick="resetQuery()">Reset Query</button>
+        <button type="submit" id="submit-btn">Submit</button>
     </form>
 
-    <?php
-        if(isset($_POST['Debug'])){
-            $input = $_POST['code'];
-            $command = "java -jar path/to/javad.jar $input";
-            $output = shell_exec($command);
-            echo $output;
-        }
+    <script>
+        function resetQuery() {
+            // Get the text area element and response
+            var textarea = document.getElementById("prompt");
+            var res = document.getElementById("res");
 
-    ?>
+
+            // Reset the value of the text area
+            textarea.value = "";
+            res.innerHTML = "";
+            textarea.focus();
+        }
+    </script>
+
+
+
+
 
 
 
@@ -128,3 +241,64 @@ mysqli_select_db($con, 'codespindle');
     crossorigin="anonymous"></script>
 
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get the prompt from the form data
+    $prompt = $_POST['prompt'];
+
+    // Initialize a new cURL session
+    $ch = curl_init();
+
+    // Set the URL to send the request to
+    curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
+
+    // Return the response instead of outputting it
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    // Use the POST method to send the request
+    curl_setopt($ch, CURLOPT_POST, 1);
+
+    // Set the request body as a JSON-encoded string
+    $request_data = array(
+        'model' => 'text-davinci-002',
+        'prompt' => $prompt,
+        'temperature' => 0,
+        'max_tokens' => 2000,
+        'top_p' => 1,
+        'frequency_penalty' => 0,
+        'presence_penalty' => 0
+    );
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request_data));
+
+    // Set the request headers
+    $headers = array(
+        'Content-Type: application/json',
+        'Authorization: Bearer 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' // Replace YOUR_API_KEY with your actual API key
+    );
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    // Send the request and store the response in a variable
+    $response = curl_exec($ch);
+
+    // Check for errors
+    if (curl_errno($ch)) {
+        echo 'cURL error: ' . curl_error($ch) . '<br>';
+        echo 'HTTP status code: ' . curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    }
+
+    // Close the cURL session
+    curl_close($ch);
+
+    // Output the API response
+    $responseObj = json_decode($response);
+    $completedCode = $responseObj->choices[0]->text;
+    ?>
+    <div id="debugger-output">
+        <h4 id="res">
+            <?php echo $completedCode; ?>
+        </h4>
+    </div>
+    <?php
+}
+?>
