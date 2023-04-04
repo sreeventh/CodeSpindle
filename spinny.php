@@ -203,9 +203,8 @@ mysqli_select_db($con, 'codespindle');
     </div>
     <!-- ********************************************************************************************************** -->
 
-    <h1>Code Debugger</h1>
+    <h1>Spinny AI</h1>
     <form id="debugger-form" method="post">
-        <label for="query">Enter your query:</label>
         <textarea id="prompt" name="prompt" rows="5" cols="50" placeholder="Type your query here..."></textarea>
         <br>
         <button type="button" id="reset-btn" onclick="resetQuery()">Reset Query</button>
