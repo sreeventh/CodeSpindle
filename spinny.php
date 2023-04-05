@@ -324,7 +324,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Set the request headers
         $headers = array(
             'Content-Type: application/json',
-            'Authorization: Bearer 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' // Replace YOUR_API_KEY with your actual API key
+            'Authorization: Bearer //Replace YOUR_API_KEY with your actual API key//' 
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
